@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionario de Circularidade</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Geist:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/app.css" />
+  </head>
+  <body>
+    <main class="shell shell-form">
+      <section class="page-header">
+        <div class="app-header">
+          <div class="app-logo-mark">LC</div>
+          <div class="app-header-text">
+            <div class="app-brand">CosmoBrasil 2.0</div>
+            <div class="app-subtitle">Pre-diagnostico de Circularidade de Laticinios</div>
+          </div>
+        </div>
+        <p class="eyebrow">Formulario setorial</p>
+        <h1>Questionario de circularidade para laticinios</h1>
+        <p class="lead">
+          Preencha os dados da empresa e responda as perguntas. O seu Relatorio de Circularidade sera
+          gerado imediatamente.
+        </p>
+      </section>
+
+      <section id="flow-indicator" class="flow-indicator" aria-label="Etapas do formulario">
+        <div class="flow-step is-active" data-step="consent">
+          <span class="flow-step-number">1</span>
+          <span>Consentimento</span>
+        </div>
+        <div class="flow-step" data-step="company">
+          <span class="flow-step-number">2</span>
+          <span>Empresa</span>
+        </div>
+        <div class="flow-step" data-step="questions">
+          <span class="flow-step-number">3</span>
+          <span>Perguntas</span>
+        </div>
+        <div class="flow-step" data-step="report">
+          <span class="flow-step-number">4</span>
+          <span>Relatorio</span>
+        </div>
+      </section>
+
+      <section id="consent-panel" class="consent-shell">
+        <article class="consent-card stack">
+          <p class="eyebrow">Consentimento</p>
+          <h2>Antes de iniciar, precisamos do seu aceite</h2>
+          <div class="terms-box">
+            <h3>TERMOS DE USO</h3>
+            <h4>1. Finalidade</h4>
+            <p>
+              Este diagnostico tem finalidade orientativa e gera um retrato inicial da circularidade da
+              empresa no setor de laticinios.
+            </p>
+            <h4>2. Dados utilizados</h4>
+            <p>
+              O formulario pode consultar o CNPJ informado para preencher dados cadastrais publicos e usa as
+              respostas para gerar o relatorio individual e leituras agregadas do setor.
+            </p>
+            <h4>3. Privacidade</h4>
+            <p>
+              Informacoes individuais nao devem ser expostas publicamente. As leituras coletivas priorizam
+              agregacao e uso analitico do conjunto.
+            </p>
+            <h4>4. Responsabilidade</h4>
+            <p>
+              O resultado nao substitui avaliacao tecnica, certificacao ou parecer especializado.
+            </p>
+          </div>
+          <label class="consent-check">
+            <input id="consent-checkbox" type="checkbox" />
+            <span>
+              <strong>Declaracao de aceite:</strong> li, compreendi e concordo com o uso dos dados para
+              preenchimento automatico e diagnostico de circularidade.
+            </span>
+          </label>
+          <div class="cta-row">
+            <button id="consent-button" class="button" type="button" disabled>Continuar para o formulario</button>
+          </div>
+        </article>
+      </section>
+
+      <form id="assessment-form" class="stack hidden">
+        <section id="company-panel" class="card stack">
+          <div>
+            <p class="eyebrow">Cadastro da empresa</p>
+            <h2>Informe a empresa que sera avaliada</h2>
+          </div>
+          <p class="muted company-helper">
+            Informe o CNPJ para tentar o preenchimento automatico. Se a consulta externa nao estiver
+            configurada, o formulario continua com preenchimento manual.
+          </p>
+          <div class="company-form">
+            <label class="field-full">
+              CNPJ
+              <input name="document" inputmode="numeric" placeholder="00.000.000/0000-00" required />
+            </label>
+            <div class="form-grid company-grid">
+              <label>
+                Razao social
+                <input name="legalName" required />
+              </label>
+              <label>
+                Responsavel
+                <input name="responsibleName" placeholder="Nome do responsavel pelo preenchimento" />
+              </label>
+              <label>
+                Segmento
+                <input name="segment" placeholder="Queijos, leite fluido, iogurte..." />
+              </label>
+              <label>
+                Produto
+                <input name="product" placeholder="Produto ou linha avaliada" />
+              </label>
+              <label>
+                Cidade
+                <input name="city" required />
+              </label>
+              <label>
+                UF
+                <input name="state" maxlength="2" required />
+              </label>
+              <label>
+                Celular
+                <input name="phone" inputmode="tel" placeholder="(00) 00000-0000" />
+              </label>
+              <label>
+                E-mail
+                <input name="email" inputmode="email" placeholder="contato@empresa.com" />
+              </label>
+            </div>
+          </div>
+          <div id="company-lookup-status" class="inline-status hidden"></div>
+          <div class="lookup-actions">
+            <button id="lookup-company-button" class="button button-secondary" type="button">Buscar dados</button>
+          </div>
+          <div class="navigation-row">
+            <button id="company-back-btn" class="button button-secondary" type="button">Voltar</button>
+            <button id="company-next-btn" class="button" type="button">Ir para perguntas</button>
+          </div>
+        </section>
+
+        <section id="questions-panel" class="card stack hidden">
+          <div>
+            <p class="eyebrow">Questionario</p>
+            <h2>Responda ao diagnostico setorial</h2>
+            <p class="muted">
+              Todas as perguntas ficam visiveis nesta etapa. Responda cada bloco antes de gerar o relatorio.
+            </p>
+          </div>
+          <div id="questions-status" class="inline-status hidden"></div>
+          <section id="questions-root" class="stack"></section>
+          <div class="navigation-row">
+            <button id="questions-back-btn" class="button button-secondary" type="button">Voltar</button>
+            <button class="button" type="submit">Gerar relatorio</button>
+          </div>
+        </section>
+      </form>
+
+      <section id="report-panel" class="card stack hidden"></section>
+    </main>
+
+    <script src="./assets/config.js"></script>
+    <script src="./assets/questionario.js"></script>
+  </body>
+</html>

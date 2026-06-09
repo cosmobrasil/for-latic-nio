@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "titulo": "Questionario de Circularidade para Laticinios",
+    "data": "2026-06-01",
+    "versao": "v1",
+    "idioma": "pt-BR",
+    "setor": "laticinios",
+    "escala_pontuacao": {
+      "2": "pratica mais aderente a circularidade",
+      "1": "pratica intermediaria ou parcial",
+      "0": "pratica de baixa circularidade ou desconhecida"
+    }
+  },
+  "sections": [
+    {
+      "id": "input",
+      "titulo": "Input",
+      "pergunta": "Qual descreve melhor a origem e o perfil dos principais insumos usados na producao de laticinios da sua empresa?",
+      "type": "single_choice",
+      "options": [
+        { "id": "input_01", "texto": "Utilizamos majoritariamente materia-prima agropecuaria com origem rastreavel e fornecedores formalizados, com criterios de qualidade e conformidade.", "pontuacao": 2 },
+        { "id": "input_02", "texto": "Utilizamos majoritariamente insumos comprados de fornecedores convencionais, com controle basico de qualidade, mas sem rastreabilidade consistente.", "pontuacao": 1 },
+        { "id": "input_03", "texto": "Utilizamos parte relevante de insumos ou subprodutos reaproveitados de outros processos produtivos compativeis com seguranca sanitaria.", "pontuacao": 2 },
+        { "id": "input_04", "texto": "Utilizamos majoritariamente insumos de origem renovavel e buscamos reduzir dependencia de materiais nao renovaveis nas embalagens e insumos auxiliares.", "pontuacao": 2 },
+        { "id": "input_05", "texto": "Nao sei informar.", "pontuacao": 0 }
+      ]
+    },
+    {
+      "id": "gestao_interna",
+      "titulo": "Gestao Interna",
+      "pergunta": "Como a empresa trata os residuos, perdas e subprodutos gerados nos processos produtivos de laticinios?",
+      "type": "single_choice",
+      "options": [
+        { "id": "gestao_interna_01", "texto": "A empresa reduz perdas no processo e possui acoes para evitar ou minimizar residuos e desperdicios na producao.", "pontuacao": 2 },
+        { "id": "gestao_interna_02", "texto": "A maior parte dos residuos e rejeitos segue para descarte sem valorizacao relevante.", "pontuacao": 0 },
+        { "id": "gestao_interna_03", "texto": "A maior parte dos residuos, embalagens ou subprodutos e destinada a reuso, reciclagem, reaproveitamento ou coprocessamento adequado.", "pontuacao": 2 },
+        { "id": "gestao_interna_04", "texto": "Parte relevante dos residuos ou subprodutos e destinada a recuperacao energetica ou outra forma controlada de valorizacao.", "pontuacao": 1 },
+        { "id": "gestao_interna_05", "texto": "Nao sei informar.", "pontuacao": 0 }
+      ]
+    },
+    {
+      "id": "vida_util",
+      "titulo": "Vida Util",
+      "pergunta": "Considerando os produtos lacteos e suas embalagens, como a empresa trabalha durabilidade, conservacao e possibilidade de reaproveitamento?",
+      "type": "grouped_single_choice",
+      "subsections": [
+        {
+          "id": "vida_util_qualidade",
+          "titulo": "Qualidade e durabilidade",
+          "options": [
+            { "id": "vida_util_qualidade_01", "texto": "A empresa adota padroes de qualidade, controle de processo e especificacoes que ampliam a vida util do produto dentro dos requisitos sanitarios.", "pontuacao": 2 },
+            { "id": "vida_util_qualidade_02", "texto": "Existem controles basicos de qualidade, mas sem acoes consistentes para ganho de vida util, reducao de perdas ou estabilidade logistica.", "pontuacao": 1 },
+            { "id": "vida_util_qualidade_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "vida_util_design",
+          "titulo": "Design da embalagem e reparabilidade do sistema",
+          "options": [
+            { "id": "vida_util_design_01", "texto": "A empresa desenvolve ou seleciona embalagens para facilitar conservacao, manuseio, separacao de materiais e reducao de perdas no uso.", "pontuacao": 2 },
+            { "id": "vida_util_design_02", "texto": "A empresa usa embalagens convencionais, com poucas iniciativas de melhoria para circularidade ou reducao de impacto.", "pontuacao": 1 },
+            { "id": "vida_util_design_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "vida_util_retorno",
+          "titulo": "Reutilizacao, reaproveitamento e retorno",
+          "options": [
+            { "id": "vida_util_retorno_01", "texto": "A empresa possui pratica estruturada de reaproveitamento de materiais, retorno de embalagens ou aproveitamento de subprodutos de forma segura e rastreavel.", "pontuacao": 2 },
+            { "id": "vida_util_retorno_02", "texto": "Existem acoes pontuais de reaproveitamento, mas sem escala ou padronizacao.", "pontuacao": 1 },
+            { "id": "vida_util_retorno_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "servicos_comunicacao",
+      "titulo": "Servicos e Comunicacao",
+      "pergunta": "Como a empresa orienta clientes, distribuidores e parceiros sobre uso, conservacao, rastreabilidade e descarte dos produtos?",
+      "type": "grouped_single_choice",
+      "subsections": [
+        {
+          "id": "servicos_pos_venda",
+          "titulo": "Pos-venda e suporte",
+          "options": [
+            { "id": "servicos_pos_venda_01", "texto": "A empresa possui canais ativos para atendimento, resolucao de problemas, orientacao de armazenamento e reducao de perdas ao longo da cadeia.", "pontuacao": 2 },
+            { "id": "servicos_pos_venda_02", "texto": "A empresa oferece atendimento apenas reativo, com pouca orientacao preventiva.", "pontuacao": 1 },
+            { "id": "servicos_pos_venda_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "servicos_rastreabilidade",
+          "titulo": "Rastreabilidade",
+          "options": [
+            { "id": "servicos_rastreabilidade_01", "texto": "A empresa possui mecanismos de rastreabilidade do produto, lote ou cadeia, com informacoes acessiveis para controle e gestao.", "pontuacao": 2 },
+            { "id": "servicos_rastreabilidade_02", "texto": "A rastreabilidade existe apenas parcialmente ou depende de controles manuais limitados.", "pontuacao": 1 },
+            { "id": "servicos_rastreabilidade_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "servicos_comunicacao_qualificada",
+          "titulo": "Comunicacao ao consumidor",
+          "options": [
+            { "id": "servicos_comunicacao_01", "texto": "A empresa comunica de forma clara informacoes sobre conservacao, validade, origem, descarte e boas praticas de uso.", "pontuacao": 2 },
+            { "id": "servicos_comunicacao_02", "texto": "A comunicacao ao cliente existe, mas e limitada ao minimo regulatorio.", "pontuacao": 1 },
+            { "id": "servicos_comunicacao_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "output_fim_de_vida",
+      "titulo": "Output e Fim de Vida",
+      "pergunta": "O que melhor descreve o destino final das embalagens, materiais e subprodutos associados aos produtos lacteos?",
+      "type": "single_choice",
+      "options": [
+        { "id": "output_01", "texto": "A empresa adota solucoes para desmontagem, separacao ou retorno de materiais, favorecendo reaproveitamento ou nova utilizacao.", "pontuacao": 2 },
+        { "id": "output_02", "texto": "A empresa prioriza materiais ou fluxos com potencial de reciclagem e orienta adequadamente esse destino.", "pontuacao": 2 },
+        { "id": "output_03", "texto": "A maior parte dos materiais segue para descarte sem estrategia consistente de circularidade.", "pontuacao": 0 },
+        { "id": "output_04", "texto": "Parte relevante dos materiais e destinada a recuperacao energetica ou valorizacao controlada.", "pontuacao": 1 },
+        { "id": "output_05", "texto": "Nao sei informar.", "pontuacao": 0 }
+      ]
+    }
+  ]
+}
