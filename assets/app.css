@@ -681,6 +681,18 @@ td {
   color: #1f2a3d;
 }
 
+.report-preview,
+.report-preview h1,
+.report-preview h2,
+.report-preview h3,
+.report-preview p,
+.report-preview li,
+.report-preview span,
+.report-preview strong,
+.report-preview small {
+  color: inherit;
+}
+
 .report-document {
   width: min(100%, 920px);
   margin: 0 auto;
@@ -692,6 +704,7 @@ td {
 
 .report-page {
   padding: 2rem 2.4rem 2.2rem;
+  color: #1f2a3d;
 }
 
 .report-page + .report-page {
@@ -749,6 +762,11 @@ td {
 .report-box h3 {
   color: #182235;
   margin-bottom: 1rem;
+}
+
+.report-preview h2,
+.report-preview h3 {
+  color: #182235;
 }
 
 .report-company-list,
@@ -863,6 +881,11 @@ td {
   border-color: #9fe7dd;
 }
 
+.report-recommendation-card.theme-neutral {
+  color: #1f2a3d;
+  border-color: #d7e1ef;
+}
+
 .report-note-card {
   margin-top: 1.5rem;
   border: 1px solid #d7e1ef;
@@ -880,6 +903,18 @@ td {
   justify-content: flex-end;
   gap: 0.75rem;
   flex-wrap: wrap;
+}
+
+.report-download-row .button,
+.report-download-row button {
+  background: #174732;
+  color: #ffffff;
+  border: 1px solid #174732;
+}
+
+.report-download-row .button:hover,
+.report-download-row button:hover {
+  background: #0f3122;
 }
 
 .report-download-row .button-secondary {
