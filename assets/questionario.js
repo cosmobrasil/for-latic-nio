@@ -273,6 +273,8 @@ const questionnaireFallback = {
   ]
 };
 
+const CNPJ_ERROR_MESSAGE = "Conferir o numero do CNPJ - faca o preenchimento das informacoes abaixo";
+
 let questionnaire = questionnaireFallback;
 let currentStep = "consent";
 
@@ -435,12 +437,6 @@ function validateCompanyStep() {
     return false;
   }
 
-  const document = normalizeDocument(documentInput.value);
-  if (document.length !== 14) {
-    renderInlineStatus(companyLookupStatus, "status-error", "Informe um CNPJ valido com 14 digitos.");
-    return false;
-  }
-
   hideInlineStatus(companyLookupStatus);
   return true;
 }
@@ -546,7 +542,7 @@ async function lookupCompanyByDocument() {
   const document = normalizeDocument(documentInput.value);
 
   if (document.length !== 14) {
-    renderInlineStatus(companyLookupStatus, "status-error", "Informe um CNPJ com 14 digitos para buscar os dados.");
+    renderInlineStatus(companyLookupStatus, "status-warning", CNPJ_ERROR_MESSAGE);
     return;
   }
 
@@ -554,18 +550,15 @@ async function lookupCompanyByDocument() {
 
   try {
     const response = await fetch(`${apiBaseUrl}/api/company/lookup?document=${encodeURIComponent(document)}`);
-    const data = await response.json();
+    const data = await response.json().catch(() => null);
 
-    if (!response.ok) {
-      throw new Error(data.error || "Falha ao consultar CNPJ.");
-    }
-
-    if (!data.found || !data.company) {
-      renderInlineStatus(
-        companyLookupStatus,
-        "status-warning",
-        data.reason || "Nenhum cadastro encontrado. Continue com o preenchimento manual."
-      );
+    if (!response.ok || !data?.found || !data?.company) {
+      console.warn("Falha na consulta de CNPJ:", {
+        status: response.status,
+        responseOk: response.ok,
+        data
+      });
+      renderInlineStatus(companyLookupStatus, "status-warning", CNPJ_ERROR_MESSAGE);
       return;
     }
 
@@ -585,11 +578,8 @@ async function lookupCompanyByDocument() {
       `Dados preenchidos a partir da fonte ${data.source === "empresaqui" ? "EmpresAqui" : "local"}.`
     );
   } catch (error) {
-    renderInlineStatus(
-      companyLookupStatus,
-      "status-warning",
-      `${error.message} Continue com o preenchimento manual se necessario.`
-    );
+    console.error("Erro na consulta de CNPJ:", error);
+    renderInlineStatus(companyLookupStatus, "status-warning", CNPJ_ERROR_MESSAGE);
   }
 }
 
