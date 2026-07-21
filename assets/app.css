@@ -535,6 +535,10 @@ select {
   border-left: 4px solid var(--accent);
 }
 
+.status-info {
+  border-left: 4px solid #3b82f6;
+}
+
 .status-error {
   border-left: 4px solid var(--danger);
 }

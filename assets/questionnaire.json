@@ -1,124 +1,164 @@
 {
   "metadata": {
-    "titulo": "Pré-Diagnóstico sobre Circularidade de Laticínios",
-    "data": "2026-06-01",
-    "versao": "v1",
+    "titulo": "Autodiagnóstico de Circularidade para Laticínios",
+    "data": "2026-07-21",
+    "versao": "v2-pdf",
     "idioma": "pt-BR",
     "setor": "laticinios",
     "escala_pontuacao": {
-      "2": "pratica mais aderente a circularidade",
-      "1": "pratica intermediaria ou parcial",
-      "0": "pratica de baixa circularidade ou desconhecida"
+      "2": "prática mais aderente à circularidade",
+      "1": "prática intermediária ou parcial",
+      "0": "prática de baixa circularidade ou desconhecida"
     }
   },
   "sections": [
     {
       "id": "input",
-      "titulo": "Input",
-      "pergunta": "Qual descreve melhor a origem e o perfil dos principais insumos usados na producao de laticinios da sua empresa?",
+      "titulo": "Etapa 1 - Entrada (Input)",
+      "pergunta": "Origem e tipologia das matérias-primas: qual é o tipo de matérias-primas predominantes (mais que 80%) do produto que você indicou?",
       "type": "single_choice",
       "options": [
-        { "id": "input_01", "texto": "Utilizamos majoritariamente materia-prima agropecuaria com origem rastreavel e fornecedores formalizados, com criterios de qualidade e conformidade.", "pontuacao": 2 },
-        { "id": "input_02", "texto": "Utilizamos majoritariamente insumos comprados de fornecedores convencionais, com controle basico de qualidade, mas sem rastreabilidade consistente.", "pontuacao": 1 },
-        { "id": "input_03", "texto": "Utilizamos parte relevante de insumos ou subprodutos reaproveitados de outros processos produtivos compativeis com seguranca sanitaria.", "pontuacao": 2 },
-        { "id": "input_04", "texto": "Utilizamos majoritariamente insumos de origem renovavel e buscamos reduzir dependencia de materiais nao renovaveis nas embalagens e insumos auxiliares.", "pontuacao": 2 },
-        { "id": "input_05", "texto": "Nao sei informar.", "pontuacao": 0 }
+        { "id": "q1_01", "texto": "Utilizamos majoritariamente matéria-prima agropecuária com origem rastreável e fornecedores formalizados, com critérios de qualidade e conformidade.", "pontuacao": 2 },
+        { "id": "q1_02", "texto": "O produto que indiquei utiliza predominantemente matéria-prima de aproveitamento de resíduos de outros processos produtivos.", "pontuacao": 2 },
+        { "id": "q1_03", "texto": "Utilizamos majoritariamente insumos comprados de fornecedores convencionais com segurança sanitária, porém sem rastreabilidade ou certificação de origem consistente.", "pontuacao": 1 },
+        { "id": "q1_04", "texto": "Não existe uma política definida sobre a origem e tipologia das matérias-primas, mas estamos a trabalhar para isso.", "pontuacao": 1 },
+        { "id": "q1_05", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
       ]
     },
     {
       "id": "gestao_interna",
-      "titulo": "Gestao Interna",
-      "pergunta": "Como a empresa trata os residuos, perdas e subprodutos gerados nos processos produtivos de laticinios?",
+      "titulo": "Etapa 2 - Gestão de Resíduos",
+      "pergunta": "Capacidade de utilizar os resíduos gerados pelos processos produtivos do produto que você indicou.",
       "type": "single_choice",
       "options": [
-        { "id": "gestao_interna_01", "texto": "A empresa reduz perdas no processo e possui acoes para evitar ou minimizar residuos e desperdicios na producao.", "pontuacao": 2 },
-        { "id": "gestao_interna_02", "texto": "A maior parte dos residuos e rejeitos segue para descarte sem valorizacao relevante.", "pontuacao": 0 },
-        { "id": "gestao_interna_03", "texto": "A maior parte dos residuos, embalagens ou subprodutos e destinada a reuso, reciclagem, reaproveitamento ou coprocessamento adequado.", "pontuacao": 2 },
-        { "id": "gestao_interna_04", "texto": "Parte relevante dos residuos ou subprodutos e destinada a recuperacao energetica ou outra forma controlada de valorizacao.", "pontuacao": 1 },
-        { "id": "gestao_interna_05", "texto": "Nao sei informar.", "pontuacao": 0 }
+        { "id": "q2_01", "texto": "A maioria (mais de 80%) dos resíduos e rejeitos segue para descarte sem valorização relevante. Exemplo: destinados para descarte em aterros sanitários.", "pontuacao": 0 },
+        { "id": "q2_02", "texto": "A maioria (mais de 80%) dos resíduos de produção são destinados principalmente aos processos de reciclagem, reuso e reaproveitamento. Exemplo: produção de novos produtos, outro processo de reuso, compostagem, fertilizantes, etc.", "pontuacao": 2 },
+        { "id": "q2_03", "texto": "Partes relevantes dos resíduos ou subprodutos são destinadas à recuperação energética ou a outras formas controladas de valorização.", "pontuacao": 1 },
+        { "id": "q2_04", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
+      ]
+    },
+    {
+      "id": "output_fim_de_vida",
+      "titulo": "Etapa 3 - Saída do Produto (Output / fim de vida)",
+      "pergunta": "Embalagem na saída do produto (output fim da vida): considere os recursos e materiais da embalagem do produto visando definir a fase final do ciclo de vida de um produto no mercado.",
+      "type": "grouped_single_choice",
+      "subsections": [
+        {
+          "id": "q3",
+          "titulo": "Questão Q3",
+          "pergunta": "A embalagem utilizada tem potencial de reciclagem com informações para orientar adequadamente o uso no seu destino final?",
+          "options": [
+            { "id": "q3_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q3_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q3_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "q4",
+          "titulo": "Questão Q4",
+          "pergunta": "Os materiais dos quais a embalagem do produto é realizada poderão ser utilizados principalmente na recuperação energética ou valorização controlada no seu destino final?",
+          "options": [
+            { "id": "q4_sim", "texto": "Sim", "pontuacao": 1 },
+            { "id": "q4_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q4_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "q5",
+          "titulo": "Questão Q5",
+          "pergunta": "Logística reversa: no destino final, a embalagem tem soluções para desmontagem ou separação ou retorno de materiais, favorecendo reaproveitamento ou nova utilização na logística reversa?",
+          "options": [
+            { "id": "q5_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q5_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q5_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
+          ]
+        },
+        {
+          "id": "q6",
+          "titulo": "Questão Q6",
+          "pergunta": "Os materiais dos quais as embalagens são realizadas poderão ser destinados principalmente para descarte em aterros sanitários?",
+          "options": [
+            { "id": "q6_sim", "texto": "Sim", "pontuacao": 0 },
+            { "id": "q6_nao", "texto": "Não", "pontuacao": 2 },
+            { "id": "q6_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
+          ]
+        }
       ]
     },
     {
       "id": "vida_util",
-      "titulo": "Vida Util",
-      "pergunta": "Considerando os produtos lacteos e suas embalagens, como a empresa trabalha durabilidade, conservacao e possibilidade de reaproveitamento?",
+      "titulo": "Etapa 4 - Vida Útil do Produto",
+      "pergunta": "Refere-se às características da qualidade do produto (ex.: durabilidade, reaproveitamento ou reutilização). O produto colocado no mercado tem as seguintes características:",
       "type": "grouped_single_choice",
       "subsections": [
         {
-          "id": "vida_util_qualidade",
-          "titulo": "Qualidade e durabilidade",
+          "id": "q7",
+          "titulo": "Questão Q7",
+          "pergunta": "A eficiência do shelf life (vida útil) em laticínios assegura a segurança e a qualidade do alimento até o momento do consumo. A vida útil do alimento depende da cadeia do frio em manter a refrigeração e a segurança alimentar em toda a logística de distribuição. Sua empresa ou fornecedores utilizam tecnologias, sistemas inteligentes de refrigeração, rastreamento térmico ou outras medidas que tornam a logística mais eficiente e sustentável?",
           "options": [
-            { "id": "vida_util_qualidade_01", "texto": "A empresa adota padroes de qualidade, controle de processo e especificacoes que ampliam a vida util do produto dentro dos requisitos sanitarios.", "pontuacao": 2 },
-            { "id": "vida_util_qualidade_02", "texto": "Existem controles basicos de qualidade, mas sem acoes consistentes para ganho de vida util, reducao de perdas ou estabilidade logistica.", "pontuacao": 1 },
-            { "id": "vida_util_qualidade_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+            { "id": "q7_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q7_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q7_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
           ]
         },
         {
-          "id": "vida_util_design",
-          "titulo": "Design da embalagem e reparabilidade do sistema",
+          "id": "q8",
+          "titulo": "Questão Q8",
+          "pergunta": "Você ou seu fornecedor tem medida de eficiência da cadeia fria eficiente e sustentável do produto, focados na refrigeração imediata desde a fazenda, transporte logístico otimizado, reduzindo perdas de matéria-prima e garantindo a segurança alimentar, aumentam a qualidade do produto e diminuem o impacto?",
           "options": [
-            { "id": "vida_util_design_01", "texto": "A empresa desenvolve ou seleciona embalagens para facilitar conservacao, manuseio, separacao de materiais e reducao de perdas no uso.", "pontuacao": 2 },
-            { "id": "vida_util_design_02", "texto": "A empresa usa embalagens convencionais, com poucas iniciativas de melhoria para circularidade ou reducao de impacto.", "pontuacao": 1 },
-            { "id": "vida_util_design_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+            { "id": "q8_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q8_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q8_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
           ]
         },
         {
-          "id": "vida_util_retorno",
-          "titulo": "Reutilizacao, reaproveitamento e retorno",
+          "id": "q9",
+          "titulo": "Questão Q9",
+          "pergunta": "Existe uma política interna da empresa sobre a vida útil do produto? A empresa adota padrões de qualidade, controle de processo e especificações que ampliam a vida útil do produto dentro dos requisitos sanitários.",
           "options": [
-            { "id": "vida_util_retorno_01", "texto": "A empresa possui pratica estruturada de reaproveitamento de materiais, retorno de embalagens ou aproveitamento de subprodutos de forma segura e rastreavel.", "pontuacao": 2 },
-            { "id": "vida_util_retorno_02", "texto": "Existem acoes pontuais de reaproveitamento, mas sem escala ou padronizacao.", "pontuacao": 1 },
-            { "id": "vida_util_retorno_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+            { "id": "q9_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q9_trabalhando", "texto": "Não, porém estamos trabalhando nisso.", "pontuacao": 1 },
+            { "id": "q9_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
           ]
         }
       ]
     },
     {
       "id": "servicos_comunicacao",
-      "titulo": "Servicos e Comunicacao",
-      "pergunta": "Como a empresa orienta clientes, distribuidores e parceiros sobre uso, conservacao, rastreabilidade e descarte dos produtos?",
+      "titulo": "Etapa 5 - Monitoramento e Extensão do Ciclo de Vida do Produto",
+      "pergunta": "Refere-se aos serviços pós-venda, rastreabilidade, informações sobre o produto e fidelização (ex.: documentação, etiqueta e informações do produto).",
       "type": "grouped_single_choice",
       "subsections": [
         {
-          "id": "servicos_pos_venda",
-          "titulo": "Pos-venda e suporte",
+          "id": "q10",
+          "titulo": "Questão Q10",
+          "pergunta": "Monitoramento da saúde do consumidor: a documentação e as informações do produto, como os materiais utilizados, são facilmente disponíveis e fáceis de entender para o consumidor final?",
           "options": [
-            { "id": "servicos_pos_venda_01", "texto": "A empresa possui canais ativos para atendimento, resolucao de problemas, orientacao de armazenamento e reducao de perdas ao longo da cadeia.", "pontuacao": 2 },
-            { "id": "servicos_pos_venda_02", "texto": "A empresa oferece atendimento apenas reativo, com pouca orientacao preventiva.", "pontuacao": 1 },
-            { "id": "servicos_pos_venda_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+            { "id": "q10_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q10_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q10_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
           ]
         },
         {
-          "id": "servicos_rastreabilidade",
-          "titulo": "Rastreabilidade",
+          "id": "q11",
+          "titulo": "Questão Q11",
+          "pergunta": "O ciclo de vida do produto é rastreável? Você possui, por exemplo, indicadores de rastreabilidade que possibilitam a melhoria de dados pós-venda e ampliam os processos e a comunicação com o mercado, além de contribuir para a fidelização do cliente.",
           "options": [
-            { "id": "servicos_rastreabilidade_01", "texto": "A empresa possui mecanismos de rastreabilidade do produto, lote ou cadeia, com informacoes acessiveis para controle e gestao.", "pontuacao": 2 },
-            { "id": "servicos_rastreabilidade_02", "texto": "A rastreabilidade existe apenas parcialmente ou depende de controles manuais limitados.", "pontuacao": 1 },
-            { "id": "servicos_rastreabilidade_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+            { "id": "q11_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q11_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q11_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
           ]
         },
         {
-          "id": "servicos_comunicacao_qualificada",
-          "titulo": "Comunicacao ao consumidor",
+          "id": "q12",
+          "titulo": "Questão Q12",
+          "pergunta": "Você tem serviços pós-venda, ou comunica que pode oferecer apoio ao cliente em relação à qualidade e certificação do seu produto?",
           "options": [
-            { "id": "servicos_comunicacao_01", "texto": "A empresa comunica de forma clara informacoes sobre conservacao, validade, origem, descarte e boas praticas de uso.", "pontuacao": 2 },
-            { "id": "servicos_comunicacao_02", "texto": "A comunicacao ao cliente existe, mas e limitada ao minimo regulatorio.", "pontuacao": 1 },
-            { "id": "servicos_comunicacao_03", "texto": "Nao sei informar.", "pontuacao": 0 }
+            { "id": "q12_sim", "texto": "Sim", "pontuacao": 2 },
+            { "id": "q12_nao", "texto": "Não", "pontuacao": 0 },
+            { "id": "q12_nao_sei", "texto": "Não sei. Não aplicável.", "pontuacao": 0 }
           ]
         }
-      ]
-    },
-    {
-      "id": "output_fim_de_vida",
-      "titulo": "Output e Fim de Vida",
-      "pergunta": "O que melhor descreve o destino final das embalagens, materiais e subprodutos associados aos produtos lacteos?",
-      "type": "single_choice",
-      "options": [
-        { "id": "output_01", "texto": "A empresa adota solucoes para desmontagem, separacao ou retorno de materiais, favorecendo reaproveitamento ou nova utilizacao.", "pontuacao": 2 },
-        { "id": "output_02", "texto": "A empresa prioriza materiais ou fluxos com potencial de reciclagem e orienta adequadamente esse destino.", "pontuacao": 2 },
-        { "id": "output_03", "texto": "A maior parte dos materiais segue para descarte sem estrategia consistente de circularidade.", "pontuacao": 0 },
-        { "id": "output_04", "texto": "Parte relevante dos materiais e destinada a recuperacao energetica ou valorizacao controlada.", "pontuacao": 1 },
-        { "id": "output_05", "texto": "Nao sei informar.", "pontuacao": 0 }
       ]
     }
   ]

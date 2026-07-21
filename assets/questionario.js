@@ -274,6 +274,7 @@ const questionnaireFallback = {
 };
 
 const CNPJ_ERROR_MESSAGE = "Conferir o numero do CNPJ - faca o preenchimento das informacoes abaixo";
+const CNPJ_API_UNAVAILABLE = "APIs de consulta indisponiveis no momento. Preencha os dados manualmente e continue.";
 
 let questionnaire = questionnaireFallback;
 let currentStep = "consent";
@@ -337,7 +338,7 @@ function flattenDefinitions() {
         stageId: section.id,
         stageTitle: section.titulo,
         title: subsection.titulo,
-        prompt: section.pergunta,
+        prompt: subsection.pergunta || section.pergunta,
         options: subsection.options
       }));
     }
@@ -510,7 +511,7 @@ function renderQuestions() {
                   stageId: section.id,
                   stageTitle: section.titulo,
                   title: subsection.titulo,
-                  prompt: subsection.titulo,
+                  prompt: subsection.pergunta || subsection.titulo,
                   options: subsection.options
                 })
               )
@@ -549,7 +550,7 @@ async function lookupCompanyByDocument() {
   renderInlineStatus(companyLookupStatus, "status-warning", "Consultando os dados do CNPJ...");
 
   try {
-    const response = await fetch(`${apiBaseUrl}/api/company/lookup?document=${encodeURIComponent(document)}`);
+    const response = await fetchComTimeout(`${apiBaseUrl}/api/company/lookup?document=${encodeURIComponent(document)}`);
     const data = await response.json().catch(() => null);
 
     if (!response.ok || !data?.found || !data?.company) {
@@ -558,7 +559,7 @@ async function lookupCompanyByDocument() {
         responseOk: response.ok,
         data
       });
-      renderInlineStatus(companyLookupStatus, "status-warning", CNPJ_ERROR_MESSAGE);
+      renderInlineStatus(companyLookupStatus, "status-info", CNPJ_API_UNAVAILABLE);
       return;
     }
 
@@ -579,7 +580,7 @@ async function lookupCompanyByDocument() {
     );
   } catch (error) {
     console.error("Erro na consulta de CNPJ:", error);
-    renderInlineStatus(companyLookupStatus, "status-warning", CNPJ_ERROR_MESSAGE);
+    renderInlineStatus(companyLookupStatus, "status-info", CNPJ_API_UNAVAILABLE);
   }
 }
 
@@ -1129,7 +1130,7 @@ form.addEventListener("submit", async (event) => {
   renderReportLoading();
 
   try {
-    const response = await fetch(`${apiBaseUrl}/api/assessments`, {
+    const response = await fetchComRetry(`${apiBaseUrl}/api/assessments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
