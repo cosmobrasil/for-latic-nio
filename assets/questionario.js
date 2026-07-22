@@ -433,7 +433,7 @@ function hideInlineStatus(element) {
 }
 
 function validateCompanyStep() {
-  if (!legalNameInput.value.trim() || !documentInput.value.trim() || !cityInput.value.trim() || !stateInput.value.trim()) {
+  if (!legalNameInput.value.trim() || !cityInput.value.trim() || !stateInput.value.trim()) {
     form.reportValidity();
     return false;
   }
