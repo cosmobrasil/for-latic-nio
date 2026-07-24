@@ -433,11 +433,6 @@ function hideInlineStatus(element) {
 }
 
 function validateCompanyStep() {
-  if (!legalNameInput.value.trim() || !cityInput.value.trim() || !stateInput.value.trim()) {
-    form.reportValidity();
-    return false;
-  }
-
   hideInlineStatus(companyLookupStatus);
   return true;
 }
