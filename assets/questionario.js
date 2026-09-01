@@ -727,7 +727,7 @@ function computeLocalReport(answers) {
     opportunities: stageScores.filter((stage) => stage.percentage < 60).map((stage) => stage.stageTitle),
     detailedAnswers,
     aiNarrative: {
-      text: "Relatorio calculado localmente porque o backend nao concluiu o processamento.",
+      text: "",
       source: "fallback"
     }
   };
@@ -876,7 +876,7 @@ function buildReportModel(company, report, meta = {}) {
     band: report.band || "Nao informado",
     confidence: Math.round(Number(report.confidence || 0)),
     notKnownRate: Math.round(Number(report.notKnownRate || 0)),
-    aiNarrative: report.aiNarrative?.text || "Analise automatica indisponivel no momento.",
+    aiNarrative: report.aiNarrative?.text || "",
     stageCards,
     recommendations,
     answerRecommendations,
@@ -1012,10 +1012,12 @@ function createReportDocumentMarkup(model) {
             <h2>Observacoes Tecnicas</h2>
             <p>${escapeHtml(model.technicalNote)}</p>
           </article>
+          ${model.aiNarrative ? `
           <article class="report-note-card">
             <h2>Leitura Executiva</h2>
             <p>${escapeHtml(model.aiNarrative)}</p>
           </article>
+          ` : ""}
           <div class="report-footer">
             <span></span>
             <span>Pagina 3 de 3</span>
