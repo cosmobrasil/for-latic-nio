@@ -1,4 +1,4 @@
-{
+window.foodQuestionnaireFallback = {
   "metadata": {
     "titulo": "Autodiagnóstico de Circularidade para Alimentos",
     "data": "2026-09-01",
@@ -152,4 +152,4 @@
       ]
     }
   ]
-}
+};
