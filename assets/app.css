@@ -751,6 +751,13 @@ td {
   margin-top: 1.8rem;
 }
 
+.report-cover-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
 .report-box {
   border: 1px solid #d7e1ef;
   border-radius: 22px;
@@ -844,7 +851,7 @@ td {
 
 .report-recommendation-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1.25rem;
 }

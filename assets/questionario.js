@@ -936,10 +936,10 @@ function createReportDocumentMarkup(model) {
             <span>${escapeHtml(model.generatedShortDate)}</span>
           </div>
           <header class="report-hero">
-            <h1>Relatorio Completo de<br />Circularidade 2.0</h1>
+            <h1>Relatorio de Circularidade</h1>
             <p class="report-meta">ID do Relatorio: #${escapeHtml(model.reportId)} · Gerado em ${escapeHtml(model.generatedLabel)}</p>
           </header>
-          <div class="report-grid">
+          <div class="report-cover-grid">
             <article class="report-box">
               <h2>Empresa</h2>
               <div class="report-company-list">
@@ -954,7 +954,7 @@ function createReportDocumentMarkup(model) {
               </div>
             </article>
             <article class="report-box report-box-accent">
-              <h2>Resultado do Diagnostico</h2>
+              <h2>Resultado</h2>
               <div class="report-stat-list">
                 <div><strong>Pontuacao Total:</strong> ${escapeHtml(String(model.totalScore))} de ${escapeHtml(String(model.totalMaxScore))} pontos</div>
                 <div><strong>Indice de Circularidade:</strong> ${escapeHtml(formatPercent(model.igc))}</div>
@@ -1046,6 +1046,7 @@ function buildDownloadableReportHtml(model) {
     .report-hero h1{margin:0 0 10px;color:#182235;font-size:54px;line-height:1.03}
     .report-meta{color:#69768b;font-size:16px}
     .report-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:20px;margin-top:28px}
+    .report-cover-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px}
     .report-box{border:1px solid #d7e1ef;border-radius:22px;padding:22px;background:#fff}
     .report-box-accent{border-color:#9fe7c8}
     .report-company-list,.report-stat-list{display:grid;gap:8px;color:#3c4b63;font-size:16px}
@@ -1058,7 +1059,7 @@ function buildDownloadableReportHtml(model) {
     .report-summary-line{color:#0b7a5b;font-size:16px;margin:16px 0 20px;text-align:center}
     .report-info-card{border-top:1px solid #9fe7c8;padding-top:18px;color:#0f5c49}
     .report-info-card p,.report-box p,.report-note-card p{line-height:1.45}
-    .report-recommendation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+    .report-recommendation-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
     .report-recommendation-card{border:1px solid #d7e1ef;border-radius:20px;padding:20px;background:#fff}
     .report-recommendation-card ul{margin:0;padding-left:18px;color:#39475f}
     .report-recommendation-card li + li{margin-top:10px}
