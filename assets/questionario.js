@@ -881,7 +881,7 @@ function buildReportModel(company, report, meta = {}) {
     recommendations,
     answerRecommendations,
     technicalNote:
-      "Este relatorio e gerado automaticamente com base nas respostas fornecidas no pre-diagnostico. Recomenda-se validacao tecnica para decisoes estrategicas."
+      "Os percentuais obtidos nesse relatório não refletem uma classificação de “melhor” ou “pior”, mas funcionam como estímulo para melhorias contínuas nos processos produtivos, visando preparar a empresa para novos nichos de mercado internacionais.\n\nEste resultado está alinhado ao contexto da economia circular com parâmetros internacionais, visando preparar empresas e instituições na organização e abertura de novos nichos de mercado."
   };
 }
 
@@ -1009,8 +1009,8 @@ function createReportDocumentMarkup(model) {
             <span>${escapeHtml(model.generatedShortDate)}</span>
           </div>
           <article class="report-note-card" style="margin-top:1.8rem;">
-            <h2>Observacoes Tecnicas</h2>
-            <p>${escapeHtml(model.technicalNote)}</p>
+            <h2>Observações Técnicas - Importante: interpretação dos resultados</h2>
+            <p>${escapeHtml(model.technicalNote).replaceAll("\n", "<br /><br />")}</p>
           </article>
           ${model.aiNarrative ? `
           <article class="report-note-card">
