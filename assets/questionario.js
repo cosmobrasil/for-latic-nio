@@ -512,6 +512,27 @@ function hideInlineStatus(element) {
 
 function validateCompanyStep() {
   hideInlineStatus(companyLookupStatus);
+  const company = readCompanyFormData();
+  const missingFields = [];
+
+  if (!company.legalName) missingFields.push("Razão social");
+  if (!company.city) missingFields.push("Cidade");
+  if (!company.state) missingFields.push("UF");
+
+  if (missingFields.length) {
+    renderInlineStatus(
+      companyLookupStatus,
+      "status-error",
+      `Preencha os campos obrigatórios: ${missingFields.join(", ")}.`
+    );
+    return false;
+  }
+
+  if (!/^[A-Z]{2}$/.test(company.state)) {
+    renderInlineStatus(companyLookupStatus, "status-error", "Informe a UF com duas letras, por exemplo: SP.");
+    return false;
+  }
+
   return true;
 }
 
