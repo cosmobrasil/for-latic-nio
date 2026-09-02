@@ -454,6 +454,13 @@ select {
   margin-bottom: 0;
 }
 
+.stage-description {
+  max-width: 78ch;
+  margin: 0.35rem 0 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .question-block {
   display: grid;
   gap: 1rem;
@@ -711,6 +718,11 @@ td {
   color: #1f2a3d;
 }
 
+.report-page-recommendations,
+.report-page-notes {
+  page-break-before: always;
+}
+
 .report-page + .report-page {
   border-top: 1px solid #e6edf7;
 }
@@ -744,9 +756,25 @@ td {
   font-size: 1rem;
 }
 
+.report-section-kicker {
+  margin: 0 0 0.45rem;
+  color: #b34d1f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .report-grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.report-cover-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.2rem;
   margin-top: 1.8rem;
 }
@@ -844,7 +872,7 @@ td {
 
 .report-recommendation-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1.25rem;
 }
@@ -854,6 +882,7 @@ td {
   border-radius: 20px;
   padding: 1.25rem;
   background: #fff;
+  break-inside: avoid;
 }
 
 .report-recommendation-card h3 {
@@ -900,6 +929,11 @@ td {
 .report-note-card p {
   margin-bottom: 0;
   color: #3c4b63;
+}
+
+.report-page-notes .report-note-card:first-of-type {
+  border-color: #f2ae00;
+  background: #fffdf4;
 }
 
 .report-download-row {
