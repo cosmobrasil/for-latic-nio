@@ -606,27 +606,6 @@ function hideInlineStatus(element) {
 
 function validateCompanyStep() {
   hideInlineStatus(companyLookupStatus);
-  const company = readCompanyFormData();
-  const missingFields = [];
-
-  if (!company.legalName) missingFields.push("Razão social");
-  if (!company.city) missingFields.push("Cidade");
-  if (!company.state) missingFields.push("UF");
-
-  if (missingFields.length) {
-    renderInlineStatus(
-      companyLookupStatus,
-      "status-error",
-      `Preencha os campos obrigatórios: ${missingFields.join(", ")}.`
-    );
-    return false;
-  }
-
-  if (!/^[A-Z]{2}$/.test(company.state)) {
-    renderInlineStatus(companyLookupStatus, "status-error", "Informe a UF com duas letras, por exemplo: SP.");
-    return false;
-  }
-
   return true;
 }
 
@@ -984,9 +963,6 @@ function buildReportModel(company, report, meta = {}) {
   const scoreTotals = computeScoreTotals(report);
   const stageCards = getStageDisplayData(report);
   const recommendations = buildRecommendationsByCategory(report);
-  const answerRecommendations = (report.detailedAnswers || [])
-    .map((item) => item.recommendation)
-    .filter(Boolean);
   const materialsProfile = computeMaterialsProfile(report);
   const createdAt = meta.createdAt || new Date().toISOString();
   const reportId = meta.assessmentId || "local";
@@ -1017,7 +993,6 @@ function buildReportModel(company, report, meta = {}) {
     aiNarrative: report.aiNarrative?.text || "",
     stageCards,
     recommendations,
-    answerRecommendations,
     technicalNote:
       "Os percentuais obtidos nesse relatório não refletem uma classificação de “melhor” ou “pior”, mas funcionam como estímulo para melhorias contínuas nos processos produtivos, visando preparar a empresa para novos nichos de mercado internacionais.\n\nEste resultado está alinhado ao contexto da economia circular com parâmetros internacionais, visando preparar empresas e instituições na organização e abertura de novos nichos de mercado."
   };
@@ -1047,19 +1022,6 @@ function renderRecommendationsMarkup(recommendations) {
       `
     )
     .join("");
-}
-
-function renderAnswerRecommendationsMarkup(answerRecommendations) {
-  if (!answerRecommendations.length) {
-    return "";
-  }
-
-  return `
-    <section class="answer-recommendations" style="margin-top: 1.5rem;">
-      <h3>Recomendações das respostas</h3>
-      <ul>${answerRecommendations.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-    </section>
-  `;
 }
 
 function createReportDocumentMarkup(model) {
@@ -1134,7 +1096,6 @@ function createReportDocumentMarkup(model) {
           <section style="margin-top: 2rem;">
             <h2>Recomendacoes Personalizadas</h2>
             <div class="report-recommendation-grid">${renderRecommendationsMarkup(model.recommendations.slice(0, 3))}</div>
-            ${renderAnswerRecommendationsMarkup(model.answerRecommendations)}
           </section>
           <div class="report-footer">
             <span></span>
