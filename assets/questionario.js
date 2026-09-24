@@ -93,11 +93,6 @@ const questionnaireFallback = window.foodQuestionnaireFallback || {
           "pontuacao": 2
         },
         {
-          "id": "q2_03",
-          "texto": "Partes relevantes dos resíduos ou subprodutos são destinadas à recuperação energética ou a outras formas controladas de valorização.",
-          "pontuacao": 1
-        },
-        {
           "id": "q2_04",
           "texto": "Não sei. Não aplicável.",
           "pontuacao": 0

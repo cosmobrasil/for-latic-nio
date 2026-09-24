@@ -33,7 +33,6 @@ window.foodQuestionnaireFallback = {
       "options": [
         { "id": "etapa2_01", "texto": "A maioria dos resíduos, perdas e rejeitos segue para descarte sem valorização relevante, como disposição em aterros sanitários.", "pontuacao": 0 },
         { "id": "etapa2_02", "texto": "A maioria dos resíduos, perdas e subprodutos é destinada principalmente a reciclagem, reuso, reaproveitamento, compostagem ou outra valorização adequada e rastreável.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Consolidar a segregação, a documentação e a valorização segura dos resíduos e subprodutos." },
-        { "id": "etapa2_03", "texto": "Partes relevantes dos resíduos ou subprodutos são destinadas à recuperação energética ou a outras formas controladas de valorização.", "pontuacao": 1 },
         { "id": "etapa2_04", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
       ]
     },
