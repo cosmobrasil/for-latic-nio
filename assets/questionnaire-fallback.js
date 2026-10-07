@@ -1,151 +1,304 @@
 window.foodQuestionnaireFallback = {
   "metadata": {
-    "titulo": "Autodiagnóstico de Circularidade para Alimentos",
-    "data": "2026-09-01",
-    "versao": "v3.1-alimentos",
+    "titulo": "Autodiagnóstico de Circularidade para Laticínios",
+    "data": "2026-10-07",
+    "versao": "v4-matriz-ok-laticinio-2026",
     "idioma": "pt-BR",
-    "setor": "alimentos",
+    "setor": "laticinios",
+    "fonte": "OK_LATICINIO 2.0 _2026.xlsx — aba Matriz Limpa",
     "escala_pontuacao": {
-      "2": "prática mais aderente à circularidade",
+      "0": "prática de baixa circularidade ou desconhecida",
       "1": "prática intermediária ou parcial",
-      "0": "prática de baixa circularidade ou desconhecida"
-    }
+      "2": "prática mais aderente à circularidade",
+      "3": "pontuação específica indicada pela anotação da Q3 na matriz"
+    },
+    "metodologia_pontuacao": "A matriz não continha coluna de pontuação. As pontuações foram associadas por alternativa usando a escala 0–2 do aplicativo; para a alternativa Sim da Q3, foi aplicado 3 conforme a anotação 'AQUI PRECISARIA PUNTUACAO 3' na célula da pergunta.",
+    "metodologia_recomendacoes": "A matriz não continha recomendações nem prioridades. As recomendações e prioridades por alternativa foram elaboradas para esta versão do questionário."
   },
   "sections": [
     {
-      "id": "entrada",
-      "titulo": "Etapa 1 - Entrada",
-      "pergunta": "Quais são as principais matérias-primas e ingredientes utilizados na fabricação do alimento?",
+      "id": "q1",
+      "stageId": "entrada",
+      "titulo": "ORIGEM E TIPOLOGIA DAS MATÉRIAS-PRIMAS - ETAPA 1",
+      "descricao": "Por que medir? A gestão das matérias-primas pode atrair novos consumidores modernos. Clientes priorizam marcas associadas ao cuidado ambiental e ao bem-estar animal e ao uso de matéria-prima saudável.",
+      "temaFonte": "ORIGEM E TIPOLOGIA DAS MATÉRIAS-PRIMAS (Etapa 1). Por que medir? A gestão das matérias-primas pode atrair novos consumidores modernos. Clientes priorizam marcas associadas ao cuidado ambiental e ao bem-estar animal e ao uso de matéria-prima saudável.",
+      "pergunta": "Qual a origem e tipologia das matérias-primas: qual é o tipo de matérias-primas predominantes (mais que 80%) do produto que você indicou?",
       "type": "single_choice",
       "options": [
-        { "id": "etapa1_01", "texto": "Utilizamos majoritariamente matérias-primas e ingredientes com origem rastreável, fornecedores formalizados e critérios de qualidade e conformidade.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter a rastreabilidade de origem e a conformidade dos fornecedores." },
-        { "id": "etapa1_02", "texto": "O alimento utiliza predominantemente matérias-primas, ingredientes ou subprodutos provenientes do aproveitamento de outros processos produtivos compatíveis com a segurança dos alimentos.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Ampliar o uso seguro e rastreável de matérias-primas circulares." },
-        { "id": "etapa1_03", "texto": "Utilizamos majoritariamente insumos comprados de fornecedores convencionais com controle básico de qualidade, porém sem rastreabilidade ou certificação de origem consistente.", "pontuacao": 1 },
-        { "id": "etapa1_04", "texto": "Não existe uma política definida sobre a origem e o perfil das matérias-primas e ingredientes, mas estamos trabalhando para isso.", "pontuacao": 1 },
-        { "id": "etapa1_05", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+        {
+          "id": "q1_01",
+          "texto": "A) Utilizamos majoritariamente matéria-prima agropecuária com certificação de origem rastreável e fornecedores formalizados.",
+          "pontuacao": 2,
+          "recomendacao": "Manter a rastreabilidade dos insumos e a formalização dos fornecedores; revisar periodicamente os critérios de qualidade e conformidade.",
+          "prioridade": "Médio prazo"
+        },
+        {
+          "id": "q1_02",
+          "texto": "B) Utilizamos majoritariamente matéria-prima de fornecedores com segurança sanitária, porém sem rastreabilidade ou certificação de origem.",
+          "pontuacao": 1,
+          "recomendacao": "Mapear os fornecedores principais e estabelecer critérios de origem, qualidade, conformidade e rastreabilidade para as compras.",
+          "prioridade": "Curto prazo"
+        },
+        {
+          "id": "q1_03",
+          "texto": "C) Utilizamos majoritariamente matéria-prima proveniente do aproveitamento de resíduos de outros processos produtivos.",
+          "pontuacao": 2,
+          "recomendacao": "Documentar a origem, a segurança e o destino dos insumos reaproveitados e ampliar seu uso quando compatível com os requisitos sanitários.",
+          "prioridade": "Médio prazo"
+        },
+        {
+          "id": "q1_04",
+          "texto": "Não aplicável, não, não sei etc.",
+          "pontuacao": 0,
+          "recomendacao": "Levantar as principais matérias-primas e fornecedores e registrar origem, qualidade, conformidade e rastreabilidade disponíveis.",
+          "prioridade": "Curto prazo"
+        }
       ]
     },
     {
-      "id": "gestao_residuos",
-      "titulo": "Etapa 2 - Gestão de Resíduos",
-      "pergunta": "Como a empresa trata os resíduos, perdas e subprodutos gerados nos processos de fabricação de alimentos?",
+      "id": "q2",
+      "stageId": "gestao_residuos",
+      "titulo": "GESTÃO INTERNA DE RESÍDUOS - ETAPA 2",
+      "descricao": "Apresenta diversos benefícios. Essa prática pode contribuir para a melhoria da imagem da marca, protegendo a reputação da empresa e transmitindo confiança e qualidade ao cliente final. Além disso, a redução de custos permite a oferta de preços mais competitivos no ponto de venda.",
+      "temaFonte": "A gestão interna de resíduos (Etapa 2) apresenta diversos benefícios.  Essa prática pode contribuir para a melhoria da imagem da marca, protegendo a reputação da empresa e transmitindo confiança e qualidade ao cliente final. Além disso, a redução de custos permite a oferta de preços mais competitivos no ponto de venda.",
+      "pergunta": "Capacidade de utilizar os resíduos gerados pelos processos produtivos do produto que você indicou.",
       "type": "single_choice",
       "options": [
-        { "id": "etapa2_01", "texto": "A maioria dos resíduos, perdas e rejeitos segue para descarte sem valorização relevante, como disposição em aterros sanitários.", "pontuacao": 0 },
-        { "id": "etapa2_02", "texto": "A maioria dos resíduos, perdas e subprodutos é destinada principalmente a reciclagem, reuso, reaproveitamento, compostagem ou outra valorização adequada e rastreável.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Consolidar a segregação, a documentação e a valorização segura dos resíduos e subprodutos." },
-        { "id": "etapa2_04", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+        {
+          "id": "q2_01",
+          "texto": "A) A maioria (mais de 80%) dos resíduos de produção segue para descarte sem reaproveitamento. Exemplo: destinados a aterros sanitários.",
+          "pontuacao": 0,
+          "recomendacao": "Quantificar resíduos e rejeitos, identificar as causas de geração e priorizar prevenção, segregação e alternativas de valorização antes do descarte.",
+          "prioridade": "Curto prazo"
+        },
+        {
+          "id": "q2_02",
+          "texto": "B) A maioria (mais de 80%) dos resíduos de produção segue para processos de reciclagem, reúso e reaproveitamento. Exemplo: reutilização da água e do soro, etc.",
+          "pontuacao": 2,
+          "recomendacao": "Manter registros dos volumes e destinos e consolidar parceiros para reciclagem, reúso, reaproveitamento e compostagem adequados.",
+          "prioridade": "Médio prazo"
+        },
+        {
+          "id": "q2_03",
+          "texto": "C) Não aplicável, não, não sei etc.",
+          "pontuacao": 0,
+          "recomendacao": "Fazer um inventário dos resíduos e destinos atuais e definir um plano básico para reduzir descartes e verificar opções de valorização.",
+          "prioridade": "Curto prazo"
+        }
       ]
     },
     {
       "id": "saida_produto",
-      "titulo": "Etapa 3 - Saída do Produto (fim de vida)",
-      "pergunta": "Considere os materiais da embalagem e o destino final do produto no mercado.",
+      "titulo": "EMBALAGEM (FIM DE VIDA) - ETAPA 3",
+      "descricao": "Utilização e descarte da embalagem após o consumo do produto. Qual a importância da medição? A prática do design e embalagens ecológicas diferencia queijo, leite ou iogurte dos concorrentes tradicionais. (Etapa 3: Fim de vida do produto)",
+      "pergunta": "",
       "type": "grouped_single_choice",
       "subsections": [
         {
-          "id": "etapa3_reciclagem",
-          "titulo": "Reciclabilidade da embalagem",
-          "pergunta": "A embalagem utilizada tem potencial de reciclagem e informações para orientar adequadamente o consumidor sobre seu destino final?",
+          "id": "q3",
+          "titulo": "Questão Q3",
+          "pergunta": "A sua empresa adota embalagens feitas com material reciclado, como, por exemplo, papelão reciclado nas caixas de transporte e plástico reciclado nas garrafas?",
           "options": [
-            { "id": "etapa3_01", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter a reciclabilidade e as informações de destinação da embalagem." },
-            { "id": "etapa3_02", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa3_03", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q3_01",
+              "texto": "A) Sim",
+              "pontuacao": 3,
+              "recomendacao": "Manter e documentar o conteúdo reciclado das embalagens, verificando origem dos materiais, conformidade para contato com alimentos e desempenho da embalagem.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q3_02",
+              "texto": "Não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Avaliar alternativas seguras de embalagem com conteúdo reciclado e verificar fornecedores, especificações e requisitos aplicáveis antes da adoção.",
+              "prioridade": "Curto prazo"
+            }
           ]
         },
         {
-          "id": "etapa3_logistica_reversa",
-          "titulo": "Logística reversa",
-          "pergunta": "No destino final, a embalagem possui soluções para separação, retorno ou reaproveitamento dos materiais, favorecendo a logística reversa?",
+          "id": "q5",
+          "titulo": "Questão Q5",
+          "pergunta": "A embalagem possui informações ou soluções que facilitem sua reutilização. Exemplo: logística reversa e valorização energética, promovendo o reaproveitamento?",
           "options": [
-            { "id": "etapa3_04", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter e ampliar o retorno, a separação e o reaproveitamento dos materiais." },
-            { "id": "etapa3_05", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa3_06", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q5_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter soluções de separação, retorno ou reaproveitamento e acompanhar os volumes efetivamente recuperados e seus destinos.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q5_02",
+              "texto": "B) Não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Mapear as embalagens e seus destinos pós-consumo e estruturar opções de separação, retorno ou reaproveitamento com parceiros.",
+              "prioridade": "Curto prazo"
+            }
           ]
         },
         {
-          "id": "etapa3_aterro",
-          "titulo": "Destino final",
-          "pergunta": "Os materiais das embalagens são destinados principalmente a descarte em aterros sanitários?",
+          "id": "q6",
+          "titulo": "Questão Q6",
+          "pergunta": "Os materiais dos quais as embalagens são realizadas poderão ser destinados principalmente para descarte em aterros sanitários?",
           "options": [
-            { "id": "etapa3_07", "texto": "Sim.", "pontuacao": 0 },
-            { "id": "etapa3_08", "texto": "Não.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter os destinos circulares atuais e monitorar os fluxos para evitar aterros." },
-            { "id": "etapa3_09", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q6_01",
+              "texto": "A) Sim",
+              "pontuacao": 0,
+              "recomendacao": "Reduzir o envio de embalagens a aterros e priorizar alternativas viáveis de redução, reúso, reciclagem ou valorização material.",
+              "prioridade": "Curto prazo"
+            },
+            {
+              "id": "q6_02",
+              "texto": "B) Não",
+              "pontuacao": 2,
+              "recomendacao": "Manter evidências dos destinos das embalagens e monitorar os fluxos para confirmar que não seguem predominantemente a aterros.",
+              "prioridade": "Médio prazo"
+            }
           ]
         }
       ]
     },
     {
       "id": "vida_util",
-      "titulo": "Etapa 4 - Vida Útil, Conservação e Prevenção de Perdas",
-      "pergunta": "Considere os controles de qualidade, conservação, armazenamento e distribuição do alimento.",
+      "titulo": "VIDA ÚTIL DO PRODUTO - ETAPA 4",
+      "descricao": "A vida útil do produto refere-se às características do produto, tais como durabilidade, segurança e qualidade do alimento. A medição da vida útil do produto é importante, pois o aumento da mesma contribui para o crescimento das vendas, reduzindo o desperdício, diminuindo as devoluções e permitindo o atendimento a mercados mais distantes.",
+      "pergunta": "",
       "type": "grouped_single_choice",
       "subsections": [
         {
-          "id": "etapa4_vida_util",
-          "titulo": "Vida útil e conservação",
-          "pergunta": "A empresa utiliza controles, tecnologias ou procedimentos que preservam a qualidade e ampliam a vida útil do alimento dentro dos requisitos de segurança dos alimentos?",
+          "id": "q7",
+          "titulo": "Questão Q7",
+          "pergunta": "A vida útil do produto (shelf life) indica o período entre a produção do leite, a fabricação do produto e o vencimento final. Sua empresa ou fornecedores utilizam sistemas que garantem o rastreamento até o consumidor final?",
           "options": [
-            { "id": "etapa4_01", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter os controles de qualidade e conservação para reduzir perdas." },
-            { "id": "etapa4_02", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa4_03", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q7_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter as tecnologias e controles de vida útil e cadeia fria e acompanhar temperatura, perdas e ocorrências ao longo da distribuição.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q7_02",
+              "texto": "B) Não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Mapear pontos críticos da cadeia fria e implantar controles de temperatura, rastreamento e resposta a desvios para reduzir perdas.",
+              "prioridade": "Curto prazo"
+            }
           ]
         },
         {
-          "id": "etapa4_armazenamento",
-          "titulo": "Armazenamento e transporte",
-          "pergunta": "A empresa ou seus fornecedores monitoram as condições de armazenamento e transporte, incluindo temperatura quando aplicável, para reduzir perdas e manter a segurança dos alimentos?",
+          "id": "q8",
+          "titulo": "Questão Q8",
+          "pergunta": "Alimentos deterioram-se rapidamente devido à proliferação bacteriana. Você ou seu fornecedor dispõem de testes ou medidas de controle que garantam a durabilidade do produto aumentando a vida útil do produto?",
           "options": [
-            { "id": "etapa4_04", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter os controles de armazenamento e transporte e ampliar a prevenção de perdas." },
-            { "id": "etapa4_05", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa4_06", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q8_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter as medidas de eficiência da cadeia fria e acompanhar consumo de energia, perdas de matéria-prima e desempenho logístico.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q8_02",
+              "texto": "B) Não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Avaliar refrigeração, transporte e perdas desde a fazenda e definir medidas e indicadores para melhorar eficiência e segurança alimentar.",
+              "prioridade": "Curto prazo"
+            }
           ]
         },
         {
-          "id": "etapa4_politica",
-          "titulo": "Política de prevenção de perdas",
-          "pergunta": "Existe uma política interna sobre vida útil, qualidade, conservação e prevenção de perdas?",
+          "id": "q9",
+          "titulo": "Questão Q9",
+          "pergunta": "A empresa adota práticas como a etiqueta de Identificação Geográfica, Selos e Certificações, visando à valorização da qualidade do produto?",
           "options": [
-            { "id": "etapa4_07", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter a política de vida útil, qualidade e prevenção de perdas." },
-            { "id": "etapa4_08", "texto": "Não, porém estamos trabalhando nisso.", "pontuacao": 1 },
-            { "id": "etapa4_09", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q9_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter a política de vida útil, os padrões de qualidade e as especificações de processo e revisar os resultados periodicamente.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q9_02",
+              "texto": "C) Não sei. Não aplicável.",
+              "pontuacao": 0,
+              "recomendacao": "Levantar os controles e padrões existentes e definir responsáveis, procedimentos e indicadores para a política de vida útil do produto.",
+              "prioridade": "Curto prazo"
+            }
           ]
         }
       ]
     },
     {
       "id": "monitoramento",
-      "titulo": "Etapa 5 - Monitoramento e Extensão do Ciclo de Vida do Produto",
-      "pergunta": "Considere as informações ao consumidor, a rastreabilidade e o atendimento após a venda.",
+      "titulo": "MONITORAMENTO - ETAPA 5",
+      "descricao": "O monitoramento engloba os serviços pós-venda, incluindo rastreabilidade e obtenção de feedbacks dos clientes. A medição é fundamental para acompanhar a jornada do produto, desde o produtor de leite até a gôndola, e analisar o comportamento do cliente, garantindo a máxima qualidade e a confiança na marca.",
+      "pergunta": "",
       "type": "grouped_single_choice",
       "subsections": [
         {
-          "id": "etapa5_informacoes",
-          "titulo": "Informações ao consumidor",
-          "pergunta": "As informações do alimento e da embalagem são facilmente acessíveis e fáceis de entender para o consumidor final?",
+          "id": "q10",
+          "titulo": "Questão Q10",
+          "pergunta": "Monitoramento da saúde do consumidor: a documentação e as informações do produto, incluindo a composição e os ingredientes utilizados, são facilmente acessíveis e compreensíveis para o consumidor final?",
           "options": [
-            { "id": "etapa5_01", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter informações claras sobre o alimento, a embalagem e seu descarte." },
-            { "id": "etapa5_02", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa5_03", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q10_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter a documentação e as informações sobre materiais e composição atualizadas, acessíveis e compreensíveis para o consumidor.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q10_02",
+              "texto": "B) Não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Revisar rótulos e materiais informativos e verificar se composição e informações essenciais estão disponíveis e fáceis de entender.",
+              "prioridade": "Curto prazo"
+            }
           ]
         },
         {
-          "id": "etapa5_rastreabilidade",
-          "titulo": "Rastreabilidade",
-          "pergunta": "A empresa possui rastreabilidade do alimento por lote ou cadeia, permitindo acompanhar fornecedores, produção, distribuição e eventuais ações corretivas?",
+          "id": "q11",
+          "titulo": "Questão Q11",
+          "pergunta": "Serviços pós-venda: a empresa possui mecanismos de monitoramento pós-venda para identificar a localização e o perfil dos consumidores dos produtos? Essa prática pode otimizar os seus processos e a comunicação e o marketing de mercado.",
           "options": [
-            { "id": "etapa5_04", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter os indicadores de rastreabilidade e usar os dados para melhorar os processos." },
-            { "id": "etapa5_05", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa5_06", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q11_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter indicadores de rastreabilidade do ciclo de vida e usar os dados pós-venda para orientar melhorias e comunicação com o mercado.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q11_02",
+              "texto": "B) Não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Mapear os registros do ciclo de vida e definir indicadores que conectem produção, distribuição e informações pós-venda.",
+              "prioridade": "Curto prazo"
+            }
           ]
         },
         {
-          "id": "etapa5_atendimento",
-          "titulo": "Atendimento e pós-venda",
-          "pergunta": "A empresa oferece orientação e atendimento ao cliente sobre qualidade, conservação, uso, reclamações e informações do alimento?",
+          "id": "q12",
+          "titulo": "Questão Q12",
+          "pergunta": "Valorização das certificações: você comunica que pode oferecer apoio ao cliente em relação à qualidade do produto? Essa prática pode contribuir para a fidelização do cliente.",
           "options": [
-            { "id": "etapa5_07", "texto": "Sim.", "pontuacao": 2, "recomendacao": "Parabéns, você alcançou a pontuação máxima. Manter os canais de atendimento e o apoio ao cliente." },
-            { "id": "etapa5_08", "texto": "Não.", "pontuacao": 0 },
-            { "id": "etapa5_09", "texto": "Não sei informar ou não se aplica.", "pontuacao": 0 }
+            {
+              "id": "q12_01",
+              "texto": "A) Sim",
+              "pontuacao": 2,
+              "recomendacao": "Manter e comunicar os canais de pós-venda e o apoio ao cliente sobre qualidade e certificações, aproveitando o retorno recebido.",
+              "prioridade": "Médio prazo"
+            },
+            {
+              "id": "q12_02",
+              "texto": "B) Não, não aplicável, não, não sei etc.",
+              "pontuacao": 0,
+              "recomendacao": "Definir como oferecer apoio ao cliente, documentar informações de qualidade e certificação e estabelecer um canal para dúvidas e retorno.",
+              "prioridade": "Curto prazo"
+            }
           ]
         }
       ]

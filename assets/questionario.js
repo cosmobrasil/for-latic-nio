@@ -29,380 +29,33 @@ const productInput = form.querySelector('input[name="product"]');
 const phoneInput = form.querySelector('input[name="phone"]');
 const emailInput = form.querySelector('input[name="email"]');
 
-const questionnaireFallback = window.foodQuestionnaireFallback || {
-  "metadata": {
-    "titulo": "Autodiagnóstico de Circularidade para Laticínios",
-    "data": "2026-07-21",
-    "versao": "v2-pdf",
-    "idioma": "pt-BR",
-    "setor": "laticinios",
-    "escala_pontuacao": {
-      "0": "prática de baixa circularidade ou desconhecida",
-      "1": "prática intermediária ou parcial",
-      "2": "prática mais aderente à circularidade"
-    }
-  },
-  "sections": [
-    {
-      "id": "input",
-      "titulo": "Etapa 1 - Entrada (Input)",
-      "pergunta": "Origem e tipologia das matérias-primas: qual é o tipo de matérias-primas predominantes (mais que 80%) do produto que você indicou?",
-      "type": "single_choice",
-      "options": [
-        {
-          "id": "q1_01",
-          "texto": "Utilizamos majoritariamente matéria-prima agropecuária com origem rastreável e fornecedores formalizados, com critérios de qualidade e conformidade.",
-          "pontuacao": 2
-        },
-        {
-          "id": "q1_02",
-          "texto": "O produto que indiquei utiliza predominantemente matéria-prima de aproveitamento de resíduos de outros processos produtivos.",
-          "pontuacao": 2
-        },
-        {
-          "id": "q1_03",
-          "texto": "Utilizamos majoritariamente insumos comprados de fornecedores convencionais com segurança sanitária, porém sem rastreabilidade ou certificação de origem consistente.",
-          "pontuacao": 1
-        },
-        {
-          "id": "q1_04",
-          "texto": "Não existe uma política definida sobre a origem e tipologia das matérias-primas, mas estamos a trabalhar para isso.",
-          "pontuacao": 1
-        },
-        {
-          "id": "q1_05",
-          "texto": "Não sei. Não aplicável.",
-          "pontuacao": 0
-        }
-      ]
-    },
-    {
-      "id": "gestao_interna",
-      "titulo": "Etapa 2 - Gestão de Resíduos",
-      "pergunta": "Capacidade de utilizar os resíduos gerados pelos processos produtivos do produto que você indicou.",
-      "type": "single_choice",
-      "options": [
-        {
-          "id": "q2_01",
-          "texto": "A maioria (mais de 80%) dos resíduos e rejeitos segue para descarte sem valorização relevante. Exemplo: destinados para descarte em aterros sanitários.",
-          "pontuacao": 0
-        },
-        {
-          "id": "q2_02",
-          "texto": "A maioria (mais de 80%) dos resíduos de produção são destinados principalmente aos processos de reciclagem, reuso e reaproveitamento. Exemplo: produção de novos produtos, outro processo de reuso, compostagem, fertilizantes, etc.",
-          "pontuacao": 2
-        },
-        {
-          "id": "q2_04",
-          "texto": "Não sei. Não aplicável.",
-          "pontuacao": 0
-        }
-      ]
-    },
-    {
-      "id": "output_fim_de_vida",
-      "titulo": "Etapa 3 - Saída do Produto (Output / fim de vida)",
-      "pergunta": "Embalagem na saída do produto (output fim da vida): considere os recursos e materiais da embalagem do produto visando definir a fase final do ciclo de vida de um produto no mercado.",
-      "type": "grouped_single_choice",
-      "subsections": [
-        {
-          "id": "q3",
-          "titulo": "Questão Q3",
-          "pergunta": "A embalagem utilizada tem potencial de reciclagem com informações para orientar adequadamente o uso no seu destino final?",
-          "options": [
-            {
-              "id": "q3_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q3_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q3_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q4",
-          "titulo": "Questão Q4",
-          "pergunta": "Os materiais dos quais a embalagem do produto é realizada poderão ser utilizados principalmente na recuperação energética ou valorização controlada no seu destino final?",
-          "options": [
-            {
-              "id": "q4_sim",
-              "texto": "Sim",
-              "pontuacao": 1
-            },
-            {
-              "id": "q4_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q4_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q5",
-          "titulo": "Questão Q5",
-          "pergunta": "Logística reversa: no destino final, a embalagem tem soluções para desmontagem ou separação ou retorno de materiais, favorecendo reaproveitamento ou nova utilização na logística reversa?",
-          "options": [
-            {
-              "id": "q5_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q5_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q5_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q6",
-          "titulo": "Questão Q6",
-          "pergunta": "Os materiais dos quais as embalagens são realizadas poderão ser destinados principalmente para descarte em aterros sanitários?",
-          "options": [
-            {
-              "id": "q6_sim",
-              "texto": "Sim",
-              "pontuacao": 0
-            },
-            {
-              "id": "q6_nao",
-              "texto": "Não",
-              "pontuacao": 2
-            },
-            {
-              "id": "q6_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "vida_util",
-      "titulo": "Etapa 4 - Vida Útil do Produto",
-      "pergunta": "Refere-se às características da qualidade do produto (ex.: durabilidade, reaproveitamento ou reutilização). O produto colocado no mercado tem as seguintes características:",
-      "type": "grouped_single_choice",
-      "subsections": [
-        {
-          "id": "q7",
-          "titulo": "Questão Q7",
-          "pergunta": "A eficiência do shelf life (vida útil) em laticínios assegura a segurança e a qualidade do alimento até o momento do consumo. A vida útil do alimento depende da cadeia do frio em manter a refrigeração e a segurança alimentar em toda a logística de distribuição. Sua empresa ou fornecedores utilizam tecnologias, sistemas inteligentes de refrigeração, rastreamento térmico ou outras medidas que tornam a logística mais eficiente e sustentável?",
-          "options": [
-            {
-              "id": "q7_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q7_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q7_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q8",
-          "titulo": "Questão Q8",
-          "pergunta": "Você ou seu fornecedor tem medida de eficiência da cadeia fria eficiente e sustentável do produto, focados na refrigeração imediata desde a fazenda, transporte logístico otimizado, reduzindo perdas de matéria-prima e garantindo a segurança alimentar, aumentam a qualidade do produto e diminuem o impacto?",
-          "options": [
-            {
-              "id": "q8_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q8_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q8_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q9",
-          "titulo": "Questão Q9",
-          "pergunta": "Existe uma política interna da empresa sobre a vida útil do produto? A empresa adota padrões de qualidade, controle de processo e especificações que ampliam a vida útil do produto dentro dos requisitos sanitários.",
-          "options": [
-            {
-              "id": "q9_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q9_trabalhando",
-              "texto": "Não, porém estamos trabalhando nisso.",
-              "pontuacao": 1
-            },
-            {
-              "id": "q9_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "servicos_comunicacao",
-      "titulo": "Etapa 5 - Monitoramento e Extensão do Ciclo de Vida do Produto",
-      "pergunta": "Refere-se aos serviços pós-venda, rastreabilidade, informações sobre o produto e fidelização (ex.: documentação, etiqueta e informações do produto).",
-      "type": "grouped_single_choice",
-      "subsections": [
-        {
-          "id": "q10",
-          "titulo": "Questão Q10",
-          "pergunta": "Monitoramento da saúde do consumidor: a documentação e as informações do produto, como os materiais utilizados, são facilmente disponíveis e fáceis de entender para o consumidor final?",
-          "options": [
-            {
-              "id": "q10_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q10_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q10_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q11",
-          "titulo": "Questão Q11",
-          "pergunta": "O ciclo de vida do produto é rastreável? Você possui, por exemplo, indicadores de rastreabilidade que possibilitam a melhoria de dados pós-venda e ampliam os processos e a comunicação com o mercado, além de contribuir para a fidelização do cliente.",
-          "options": [
-            {
-              "id": "q11_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q11_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q11_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        },
-        {
-          "id": "q12",
-          "titulo": "Questão Q12",
-          "pergunta": "Você tem serviços pós-venda, ou comunica que pode oferecer apoio ao cliente em relação à qualidade e certificação do seu produto?",
-          "options": [
-            {
-              "id": "q12_sim",
-              "texto": "Sim",
-              "pontuacao": 2
-            },
-            {
-              "id": "q12_nao",
-              "texto": "Não",
-              "pontuacao": 0
-            },
-            {
-              "id": "q12_nao_sei",
-              "texto": "Não sei. Não aplicável.",
-              "pontuacao": 0
-            }
-          ]
-        }
-      ]
-    }
-  ]
-};
+const questionnaireFallback = window.foodQuestionnaireFallback;
 
 let recommendationCatalog = {};
 
 const stagePresentation = {
   entrada: {
     titulo: "ORIGEM E TIPOLOGIA DAS MATÉRIAS-PRIMAS - ETAPA 1",
-    descricao: "Por que medir? A gestão das matérias-primas pode atrair novos consumidores modernos. Clientes priorizam marcas associadas ao cuidado ambiental e ao bem-estar animal e uso de matéria prima saudável."
   },
   gestao_residuos: {
     titulo: "GESTÃO INTERNA DE RESÍDUOS - ETAPA 2",
-    descricao: "Apresenta diversos benefícios. Essa prática pode contribuir para a melhoria da imagem da marca, protegendo a reputação da empresa e transmitindo confiança e qualidade ao cliente final. Além disso, a redução de custos permite a oferta de preços mais competitivos no ponto de venda."
   },
   saida_produto: {
     titulo: "EMBALAGEM (FIM DE VIDA) - ETAPA 3",
-    descricao: "Utilização e descarte da embalagem após o consumo do produto. Qual a importância da medição? A prática do design e embalagens ecológicas diferencia queijo, leite ou iogurte dos concorrentes tradicionais. (Etapa 3: Fim de vida do produto)"
   },
   vida_util: {
     titulo: "VIDA ÚTIL DO PRODUTO - ETAPA 4",
-    descricao: "Refere-se às características do produto, tais como durabilidade, segurança e qualidade do alimento. A medição da vida útil do produto é importante, pois o aumento da mesma contribui para o crescimento das vendas, reduzindo o desperdício, diminuindo as devoluções e permitindo o atendimento a mercados mais distantes."
   },
   monitoramento: {
     titulo: "MONITORAMENTO - ETAPA 5",
-    descricao: "O monitoramento engloba os serviços pós-venda, incluindo rastreabilidade e obtenção de feedbacks dos clientes. A medição é fundamental para acompanhar a jornada do produto, desde o produtor de leite até a gôndola, e analisar o comportamento do cliente, garantindo a máxima qualidade e a confiança na marca."
   }
 };
 
 function applyStagePresentation(target) {
   for (const section of target.sections || []) {
-    const presentation = stagePresentation[section.id];
+    const presentation = stagePresentation[section.stageId || section.id];
     if (presentation) {
       section.titulo = presentation.titulo;
-      section.descricao = presentation.descricao;
-    }
-  }
-  return target;
-}
-
-const mergedNoOptionIds = new Set([
-  "etapa3_03", "etapa3_06", "etapa3_09",
-  "etapa4_03", "etapa4_06", "etapa4_09",
-  "etapa5_03", "etapa5_06", "etapa5_09"
-]);
-
-const mergedNoLabels = new Set([
-  "etapa1_05", "etapa2_04", "etapa3_02", "etapa3_05", "etapa3_08",
-  "etapa4_02", "etapa4_05", "etapa4_08",
-  "etapa5_02", "etapa5_05", "etapa5_08"
-]);
-
-function consolidateNoOptions(target) {
-  for (const section of target.sections || []) {
-    const definitions = section.subsections || [section];
-    for (const definition of definitions) {
-      definition.options = (definition.options || [])
-        .filter((option) => !mergedNoOptionIds.has(option.id))
-        .map((option) => mergedNoLabels.has(option.id)
-          ? { ...option, texto: "Não, não sei/não se aplica." }
-          : option);
     }
   }
   return target;
@@ -424,18 +77,18 @@ function applyRecommendationCatalog(target) {
   return target;
 }
 
-const CNPJ_ERROR_MESSAGE = "Conferir o numero do CNPJ - faca o preenchimento das informacoes abaixo";
-const CNPJ_API_UNAVAILABLE = "APIs de consulta indisponiveis no momento. Preencha os dados manualmente e continue.";
+const CNPJ_ERROR_MESSAGE = "Confira o número do CNPJ e preencha as informações abaixo.";
+const CNPJ_API_UNAVAILABLE = "APIs de consulta indisponíveis no momento. Preencha os dados manualmente e continue.";
 
 let questionnaire = questionnaireFallback;
 let currentStep = "consent";
 
 const reportStageConfig = {
-  entrada: { label: stagePresentation.entrada.titulo, theme: "theme-blue" },
-  gestao_residuos: { label: stagePresentation.gestao_residuos.titulo, theme: "theme-orange" },
-  saida_produto: { label: stagePresentation.saida_produto.titulo, theme: "theme-blue" },
-  vida_util: { label: stagePresentation.vida_util.titulo, theme: "theme-green" },
-  monitoramento: { label: stagePresentation.monitoramento.titulo, theme: "theme-neutral" }
+  entrada: { label: "Entrada", theme: "theme-blue" },
+  gestao_residuos: { label: "Gestão de resíduos", theme: "theme-orange" },
+  saida_produto: { label: "Embalagem e fim de vida", theme: "theme-blue" },
+  vida_util: { label: "Vida útil", theme: "theme-green" },
+  monitoramento: { label: "Monitoramento", theme: "theme-neutral" }
 };
 
 function escapeHtml(value) {
@@ -497,7 +150,7 @@ function flattenDefinitions() {
     return [
       {
         key: section.id,
-        stageId: section.id,
+        stageId: section.stageId || section.id,
         stageTitle: section.titulo,
         title: section.titulo,
         prompt: section.pergunta,
@@ -517,7 +170,7 @@ function getStageIdForAnswerKey(answerKey) {
     }
 
     if (section.id === answerKey) {
-      return section.id;
+      return section.stageId || section.id;
     }
   }
 
@@ -540,13 +193,10 @@ async function loadQuestionnaire() {
     applyRecommendationCatalog(questionnaire);
     applyStagePresentation(questionnaireFallback);
     applyStagePresentation(questionnaire);
-    consolidateNoOptions(questionnaireFallback);
-    consolidateNoOptions(questionnaire);
   } catch (error) {
-    console.warn("Questionario local indisponivel, usando fallback.", error);
+    console.warn("Questionário local indisponível, usando fallback.", error);
     applyRecommendationCatalog(questionnaireFallback);
     applyStagePresentation(questionnaireFallback);
-    consolidateNoOptions(questionnaireFallback);
     questionnaire = questionnaireFallback;
   }
 }
@@ -615,7 +265,7 @@ function validateQuestions() {
   renderInlineStatus(
     questionsStatus,
     "status-error",
-    `Responda a pergunta do bloco ${firstMissing.stageTitle}: ${firstMissing.title}.`
+    `Responda à pergunta do bloco ${firstMissing.stageTitle}: ${firstMissing.title}.`
   );
 
   const target = document.querySelector(`[data-question-key="${firstMissing.key}"]`);
@@ -665,7 +315,7 @@ function renderQuestions() {
             <div class="stage-header">
               <p class="eyebrow">${escapeHtml(section.titulo)}</p>
               <p class="stage-description">${escapeHtml(section.descricao || "")}</p>
-              <h2>${escapeHtml(section.pergunta)}</h2>
+              ${section.pergunta ? `<h2>${escapeHtml(section.pergunta)}</h2>` : ""}
             </div>
             ${section.subsections
               .map((subsection) =>
@@ -766,7 +416,7 @@ function computeLocalReport(answers) {
     total += option.pontuacao;
     max += maxScore;
 
-    if (option.texto.toLowerCase().includes("nao sei informar")) {
+    if (option.texto.toLowerCase().includes("nao sei")) {
       unknown += 1;
     }
 
@@ -810,7 +460,7 @@ function computeLocalReport(answers) {
     answersCount: definitions.length,
     igc,
     pcm,
-    band: igc >= 80 ? "Avancado" : igc >= 60 ? "Estruturado" : igc >= 40 ? "Em transicao" : "Inicial",
+    band: igc >= 80 ? "Avançado" : igc >= 60 ? "Estruturado" : igc >= 40 ? "Em transição" : "Inicial",
     confidence: Number((100 - (unknown / definitions.length) * 100).toFixed(2)),
     notKnownRate: Number(((unknown / definitions.length) * 100).toFixed(2)),
     stageScores,
@@ -888,41 +538,41 @@ function getStageRecommendationItems(stageId, percentage) {
     case "entrada":
       return low
         ? [
-            "Mapear fornecedores criticos e ampliar rastreabilidade de origem.",
-            "Definir criterios de compra com menor impacto e melhor conformidade."
+            "Mapear fornecedores críticos e ampliar a rastreabilidade de origem.",
+            "Definir critérios de compra com menor impacto e melhor conformidade."
           ]
-        : ["Manter nivel atual e ampliar participacao de materiais com menor impacto."];
+        : ["Manter o nível atual e ampliar a participação de materiais com menor impacto."];
     case "gestao_residuos":
       return low
         ? [
-            "Otimizar triagem, documentacao e rastreabilidade de residuos.",
-            "Elevar reaproveitamento seguro de subprodutos do processo."
+            "Otimizar a triagem, a documentação e a rastreabilidade de resíduos.",
+            "Elevar o reaproveitamento seguro de subprodutos do processo."
           ]
-        : ["Consolidar a rotina de segregacao e valorizacao dos residuos gerados."];
+        : ["Consolidar a rotina de segregação e valorização dos resíduos gerados."];
     case "saida_produto":
       return low
         ? [
-            "Aplicar design para desmonte e facilitar separacao de materiais.",
-            "Aumentar reciclabilidade dos materiais e simplificar composicoes.",
-            "Avaliar alternativas a recuperacao energetica priorizando reciclagem."
+            "Aplicar design para desmontagem e facilitar a separação de materiais.",
+            "Aumentar a reciclabilidade dos materiais e simplificar composições.",
+            "Avaliar alternativas à recuperação energética, priorizando a reciclagem."
           ]
-        : ["Preservar destinos circulares e reforcar orientacoes de retorno e descarte."];
+        : ["Preservar destinos circulares e reforçar orientações de retorno e descarte."];
     case "vida_util":
       return low
         ? [
-            "Testar durabilidade e estabelecer garantias claras.",
-            "Criar programas de reuso e reaproveitamento pos-uso."
+            "Testar a durabilidade e estabelecer garantias claras.",
+            "Criar programas de reúso e reaproveitamento pós-uso."
           ]
-        : ["Expandir iniciativas de durabilidade, reuso e suporte pos-venda."];
+        : ["Expandir iniciativas de durabilidade, reúso e suporte pós-venda."];
     case "monitoramento":
       return low
         ? [
-            "Implementar rastreio (QR Code, passaporte digital) para ciclo de vida.",
-            "Disponibilizar documentacao clara ao consumidor sobre materiais e certificacoes."
+            "Implementar rastreabilidade (QR Code, passaporte digital) para o ciclo de vida.",
+            "Disponibilizar documentação clara ao consumidor sobre materiais e certificações."
           ]
-        : ["Aprimorar monitoramento e comunicacao para consolidar a confianca do usuario."];
+        : ["Aprimorar o monitoramento e a comunicação para consolidar a confiança do usuário."];
     default:
-      return ["Manter plano de melhoria continua para este bloco."];
+      return ["Manter um plano de melhoria contínua para este bloco."];
   }
 }
 
@@ -962,14 +612,14 @@ function buildReportModel(company, report, meta = {}) {
   const createdAt = meta.createdAt || new Date().toISOString();
   const reportId = meta.assessmentId || "local";
   const companyDisplay = {
-    legalName: company.legalName || "Nao informado",
-    city: company.city || "Nao informado",
-    phone: company.phone || "Nao informado",
-    document: company.document || "Nao informado",
-    responsibleName: company.responsibleName || "Nao informado",
-    email: company.email || "Nao informado",
-    segment: company.segment || "Nao informado",
-    product: company.product || "Nao informado"
+    legalName: company.legalName || "Não informado",
+    city: company.city || "Não informado",
+    phone: company.phone || "Não informado",
+    document: company.document || "Não informado",
+    responsibleName: company.responsibleName || "Não informado",
+    email: company.email || "Não informado",
+    segment: company.segment || "Não informado",
+    product: company.product || "Não informado"
   };
 
   return {
@@ -982,7 +632,7 @@ function buildReportModel(company, report, meta = {}) {
     totalMaxScore: scoreTotals.totalMaxScore,
     igc: Math.round(Number(report.igc || 0)),
     materialsProfile,
-    band: report.band || "Nao informado",
+    band: report.band || "Não informado",
     confidence: Math.round(Number(report.confidence || 0)),
     notKnownRate: Math.round(Number(report.notKnownRate || 0)),
     aiNarrative: report.aiNarrative?.text || "",
@@ -1027,12 +677,12 @@ function createReportDocumentMarkup(model) {
       <div class="report-document">
         <section class="report-page report-page-results">
           <div class="report-topline">
-            <span>Relatorio de Circularidade</span>
+            <span>Relatório de Circularidade</span>
             <span>${escapeHtml(model.generatedShortDate)}</span>
           </div>
           <header class="report-hero">
-            <h1>Relatorio de Circularidade</h1>
-            <p class="report-meta">ID do Relatorio: #${escapeHtml(model.reportId)} · Gerado em ${escapeHtml(model.generatedLabel)}</p>
+            <h1>Relatório de Circularidade</h1>
+            <p class="report-meta">ID do Relatório: #${escapeHtml(model.reportId)} · Gerado em ${escapeHtml(model.generatedLabel)}</p>
           </header>
           <div class="report-cover-grid">
             <article class="report-box">
@@ -1042,7 +692,7 @@ function createReportDocumentMarkup(model) {
                 <div><strong>Cidade:</strong> ${escapeHtml(model.company.city)}</div>
                 <div><strong>Celular:</strong> ${escapeHtml(model.company.phone)}</div>
                 <div><strong>CNPJ:</strong> ${escapeHtml(model.company.document)}</div>
-                <div><strong>Responsavel:</strong> ${escapeHtml(model.company.responsibleName)}</div>
+                <div><strong>Responsável:</strong> ${escapeHtml(model.company.responsibleName)}</div>
                 <div><strong>E-mail:</strong> ${escapeHtml(model.company.email)}</div>
                 <div><strong>Setor:</strong> ${escapeHtml(model.company.segment)}</div>
                 <div><strong>Produto:</strong> ${escapeHtml(model.company.product)}</div>
@@ -1051,55 +701,55 @@ function createReportDocumentMarkup(model) {
             <article class="report-box report-box-accent">
               <h2>Resultado</h2>
               <div class="report-stat-list">
-                <div><strong>Pontuacao Total:</strong> ${escapeHtml(String(model.totalScore))} de ${escapeHtml(String(model.totalMaxScore))} pontos</div>
-                <div><strong>Indice de Circularidade:</strong> ${escapeHtml(formatPercent(model.igc))}</div>
-                <div><strong>Perfil de Circularidade de Materiais:</strong> ${escapeHtml(formatPercent(model.materialsProfile))}</div>
-                <div><strong>Estagio:</strong> ${escapeHtml(model.band)}</div>
+                <div><strong>Pontuação total:</strong> ${escapeHtml(String(model.totalScore))} de ${escapeHtml(String(model.totalMaxScore))} pontos</div>
+                <div><strong>Índice de circularidade:</strong> ${escapeHtml(formatPercent(model.igc))}</div>
+                <div><strong>Perfil de circularidade de materiais:</strong> ${escapeHtml(formatPercent(model.materialsProfile))}</div>
+                <div><strong>Estágio:</strong> ${escapeHtml(model.band)}</div>
               </div>
               <div class="report-stage-cluster">
                 <div class="donut-wrap">
                   <div class="donut-chart" style="background:${donutBackground}">
-                    <div class="donut-center">${escapeHtml(formatPercent(model.igc))}<span>Indice de Circularidade</span></div>
+                    <div class="donut-center">${escapeHtml(formatPercent(model.igc))}<span>Índice de circularidade</span></div>
                   </div>
                 </div>
                 <div class="report-stage-grid">${renderStageCardsMarkup(model.stageCards)}</div>
               </div>
-              <p class="report-summary-line">Circularidade alcancada: ${escapeHtml(formatPercent(model.igc))} · Potencial de melhoria: ${escapeHtml(formatPercent(100 - model.igc))}</p>
+              <p class="report-summary-line">Circularidade alcançada: ${escapeHtml(formatPercent(model.igc))} · Potencial de melhoria: ${escapeHtml(formatPercent(100 - model.igc))}</p>
               <div class="report-info-card">
-                <h3>O que e o Indice Global de Circularidade?</h3>
+                <h3>O que é o Índice Global de Circularidade?</h3>
                 <p>É a pontuação principal que mede o quanto a sua empresa e o seu produto avaliado já incorporam os princípios da Economia Circular na prática. Ele reflete a sua eficiência no uso de matérias-primas renováveis, no prolongamento da vida útil dos produtos e na gestão correta dos resíduos em todo o ciclo de produção.</p>
               </div>
             </article>
           </div>
           <div class="report-footer">
             <span></span>
-            <span>Pagina 1 de 4</span>
+            <span>Página 1 de 4</span>
           </div>
         </section>
         <section class="report-page report-page-recommendations">
           <div class="report-topline">
-            <span>Relatorio de Circularidade</span>
+            <span>Relatório de Circularidade</span>
             <span>${escapeHtml(model.generatedShortDate)}</span>
           </div>
           <div class="report-grid" style="margin-top: 1.5rem;">
             <div></div>
             <article class="report-box report-box-accent">
-              <h2>O que e o Perfil de Circularidade de Materiais?</h2>
+              <h2>O que é o Perfil de Circularidade de Materiais?</h2>
               <p>É a síntese da circularidade dos materiais do produto avaliado, combinando a origem da matéria-prima, a gestão de resíduos e os desfechos de fim de vida mais relevantes. O cálculo transforma o questionário em um indicador único, de leitura mais direta para o usuário.</p>
             </article>
           </div>
           <section style="margin-top: 2rem;">
-            <h2>Recomendacoes Personalizadas</h2>
+            <h2>Recomendações personalizadas</h2>
             <div class="report-recommendation-grid">${renderRecommendationsMarkup(model.recommendations.slice(0, 3))}</div>
           </section>
           <div class="report-footer">
             <span></span>
-            <span>Pagina 2 de 4</span>
+            <span>Página 2 de 4</span>
           </div>
         </section>
         <section class="report-page report-page-recommendations">
           <div class="report-topline">
-            <span>Relatorio de Circularidade</span>
+            <span>Relatório de Circularidade</span>
             <span>${escapeHtml(model.generatedShortDate)}</span>
           </div>
           <section style="margin-top: 1.8rem;">
@@ -1109,12 +759,12 @@ function createReportDocumentMarkup(model) {
           </section>
           <div class="report-footer">
             <span></span>
-            <span>Pagina 3 de 4</span>
+            <span>Página 3 de 4</span>
           </div>
         </section>
         <section class="report-page report-page-notes">
           <div class="report-topline">
-            <span>Relatorio de Circularidade</span>
+            <span>Relatório de Circularidade</span>
             <span>${escapeHtml(model.generatedShortDate)}</span>
           </div>
           <article class="report-note-card" style="margin-top:1.8rem;">
@@ -1129,7 +779,7 @@ function createReportDocumentMarkup(model) {
           ` : ""}
           <div class="report-footer">
             <span></span>
-            <span>Pagina 4 de 4</span>
+            <span>Página 4 de 4</span>
           </div>
         </section>
       </div>
@@ -1143,7 +793,7 @@ function buildDownloadableReportHtml(model) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Relatorio de Circularidade - ${escapeHtml(model.company.legalName)}</title>
+  <title>Relatório de Circularidade - ${escapeHtml(model.company.legalName)}</title>
   <style>
     body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#1f2a3d;padding:24px}
     .report-document{max-width:920px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:0 24px 60px rgba(15,23,42,.16);overflow:hidden}
@@ -1229,14 +879,14 @@ function renderReport(report, options = {}) {
   reportPanel.innerHTML = `
     <div class="report-shell stack">
       <div>
-        <p class="eyebrow">Relatorio final</p>
+        <p class="eyebrow">Relatório final</p>
         <h2>Documento final pronto para leitura e download</h2>
-        <p class="lead">O relatorio abaixo segue o padrao do PDF de referencia e pode ser baixado em HTML.</p>
+        <p class="lead">O relatório abaixo segue o padrão do PDF de referência e pode ser baixado em HTML.</p>
       </div>
       ${reportStatus}
       <div class="cta-row">
         <span class="pill">${report.answersCount} respostas validadas</span>
-        <span class="pill">${Math.round(Number(report.notKnownRate || 0))}% de "Nao sei"</span>
+        <span class="pill">${Math.round(Number(report.notKnownRate || 0))}% de "Não sei"</span>
         <span class="pill">Fonte: ${escapeHtml(report.aiNarrative?.source || "fallback")}</span>
       </div>
       <div class="report-download-row">
@@ -1259,11 +909,11 @@ function renderReportLoading() {
   reportPanel.innerHTML = `
     <div class="report-shell stack">
       <div>
-        <p class="eyebrow">Relatorio final</p>
+        <p class="eyebrow">Relatório final</p>
         <h2>Processando respostas</h2>
-        <p class="lead">Calculando indicadores e tentando salvar a avaliacao no backend.</p>
+        <p class="lead">Calculando indicadores e tentando salvar a avaliação no backend.</p>
       </div>
-      <div class="inline-status status-warning">Aguarde alguns segundos enquanto o relatorio e montado.</div>
+      <div class="inline-status status-warning">Aguarde alguns segundos enquanto o relatório é montado.</div>
     </div>
   `;
 }
@@ -1358,7 +1008,7 @@ form.addEventListener("submit", async (event) => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.details?.join(" | ") || data.error || "Falha ao salvar avaliacao.");
+      throw new Error(data.details?.join(" | ") || data.error || "Falha ao salvar avaliação.");
     }
 
     if (!data.persisted) {
@@ -1370,7 +1020,7 @@ form.addEventListener("submit", async (event) => {
         },
         status: {
           kind: "status-warning",
-          message: `Relatorio calculado, mas o arquivamento nao foi concluido: ${data.archiveError || "erro nao informado"}.`
+          message: `Relatório calculado, mas o arquivamento não foi concluído: ${data.archiveError || "erro não informado"}.`
         }
       });
       return;
@@ -1384,7 +1034,7 @@ form.addEventListener("submit", async (event) => {
       },
       status: {
         kind: "status-success",
-        message: `Relatorio salvo com sucesso. assessmentId: ${data.assessmentId}`
+        message: `Relatório salvo com sucesso. ID da avaliação: ${data.assessmentId}`
       }
     });
   } catch (error) {
@@ -1395,7 +1045,7 @@ form.addEventListener("submit", async (event) => {
       },
       status: {
         kind: "status-warning",
-        message: `Relatorio calculado localmente. Motivo: ${error.message}`
+        message: `Relatório calculado localmente. Motivo: ${error.message}`
       }
     });
   }

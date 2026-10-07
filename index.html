@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Autodiagnóstico de Circularidade para Alimentos</title>
+    <title>Autodiagnóstico de Circularidade para Laticínios</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Geist:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -17,18 +17,18 @@
           <div class="app-logo-mark">LC</div>
           <div class="app-header-text">
             <div class="app-brand">CosmoBrasil 2.0</div>
-            <div class="app-subtitle">Autodiagnóstico de Circularidade para Alimentos</div>
+            <div class="app-subtitle">Autodiagnóstico de Circularidade para Laticínios</div>
           </div>
         </div>
-        <p class="eyebrow">Formulario setorial</p>
-        <h1>AUTODIAGNÓSTICO DE CIRCULARIDADE PARA ALIMENTOS</h1>
+        <p class="eyebrow">Formulário setorial</p>
+        <h1>AUTODIAGNÓSTICO DE CIRCULARIDADE PARA LATICÍNIOS</h1>
         <p class="lead">
-          Preencha os dados da empresa e responda as perguntas. O seu Relatorio de Circularidade sera
+          Preencha os dados da empresa e responda às perguntas. O seu Relatório de Circularidade será
           gerado imediatamente.
         </p>
       </section>
 
-      <section id="flow-indicator" class="flow-indicator" aria-label="Etapas do formulario">
+      <section id="flow-indicator" class="flow-indicator" aria-label="Etapas do formulário">
         <div class="flow-step is-active" data-step="consent">
           <span class="flow-step-number">1</span>
           <span>Consentimento</span>
@@ -43,7 +43,7 @@
         </div>
         <div class="flow-step" data-step="report">
           <span class="flow-step-number">4</span>
-          <span>Relatorio</span>
+          <span>Relatório</span>
         </div>
       </section>
 
@@ -55,33 +55,33 @@
             <h3>TERMOS DE USO</h3>
             <h4>1. Finalidade</h4>
             <p>
-              Este diagnostico tem finalidade orientativa e gera um retrato inicial da circularidade da
+              Este diagnóstico tem finalidade orientativa e gera um retrato inicial da circularidade da
               empresa na área de alimentos.
             </p>
             <h4>2. Dados utilizados</h4>
             <p>
-              O formulario pode consultar o CNPJ informado para preencher dados cadastrais publicos e usa as
-              respostas para gerar o relatorio individual e leituras agregadas do setor.
+              O formulário pode consultar o CNPJ informado para preencher dados cadastrais públicos e usa as
+              respostas para gerar o relatório individual e leituras agregadas do setor.
             </p>
             <h4>3. Privacidade</h4>
             <p>
-              Informacoes individuais nao devem ser expostas publicamente. As leituras coletivas priorizam
-              agregacao e uso analitico do conjunto.
+              Informações individuais não devem ser expostas publicamente. As leituras coletivas priorizam
+              agregação e uso analítico do conjunto.
             </p>
             <h4>4. Responsabilidade</h4>
             <p>
-              O resultado nao substitui avaliacao tecnica, certificacao ou parecer especializado.
+              O resultado não substitui avaliação técnica, certificação ou parecer especializado.
             </p>
           </div>
           <label class="consent-check">
             <input id="consent-checkbox" type="checkbox" />
             <span>
-              <strong>Declaracao de aceite:</strong> li, compreendi e concordo com o uso dos dados para
-              preenchimento automatico e diagnostico de circularidade.
+              <strong>Declaração de aceite:</strong> li, compreendi e concordo com o uso dos dados para
+              preenchimento automático e diagnóstico de circularidade.
             </span>
           </label>
           <div class="cta-row">
-            <button id="consent-button" class="button" type="button" disabled>Continuar para o formulario</button>
+            <button id="consent-button" class="button" type="button" disabled>Continuar para o formulário</button>
           </div>
         </article>
       </section>
@@ -90,10 +90,10 @@
         <section id="company-panel" class="card stack">
           <div>
             <p class="eyebrow">Cadastro da empresa</p>
-            <h2>Informe a empresa que sera avaliada</h2>
+            <h2>Informe a empresa que será avaliada</h2>
           </div>
           <p class="muted company-helper">
-            Informe o CNPJ, se desejar, para tentar o preenchimento automatico. O formulario tambem pode
+            Informe o CNPJ, se desejar, para tentar o preenchimento automático. O formulário também pode
             ser preenchido manualmente.
           </p>
           <div class="company-form">
@@ -103,12 +103,12 @@
             </label>
             <div class="form-grid company-grid">
               <label>
-                Razao social
+                Razão social
                 <input name="legalName" />
               </label>
               <label>
-                Responsavel
-                <input name="responsibleName" placeholder="Nome do responsavel pelo preenchimento" />
+                Responsável
+                <input name="responsibleName" placeholder="Nome do responsável pelo preenchimento" />
               </label>
               <label>
                 Segmento
@@ -148,17 +148,17 @@
 
         <section id="questions-panel" class="card stack hidden">
           <div>
-            <p class="eyebrow">Questionario</p>
-            <h2>Responda ao diagnostico setorial</h2>
+            <p class="eyebrow">Questionário</p>
+            <h2>Responda ao diagnóstico setorial</h2>
             <p class="muted">
-              Todas as perguntas ficam visiveis nesta etapa. Responda cada bloco antes de gerar o relatorio.
+              Todas as perguntas ficam visíveis nesta etapa. Responda cada bloco antes de gerar o relatório.
             </p>
           </div>
           <div id="questions-status" class="inline-status hidden"></div>
           <section id="questions-root" class="stack"></section>
           <div class="navigation-row">
             <button id="questions-back-btn" class="button button-secondary" type="button">Voltar</button>
-            <button class="button" type="submit">Gerar relatorio</button>
+            <button class="button" type="submit">Gerar relatório</button>
           </div>
         </section>
       </form>
